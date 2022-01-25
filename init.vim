@@ -21,7 +21,7 @@ call plug#end()
 
 " GENERAL VIMPROVEMENTS  
 noremap Y y$
-
+ " noremap <leader>/ :s/^/// /
 
 " COLORSCHEMES 
 let g:lightline = { 'colorscheme': 'tender' }
