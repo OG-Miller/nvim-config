@@ -17,6 +17,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'BurntSushi/ripgrep'
 Plug 'iberianpig/ranger-explorer.vim'
+Plug 'lfv89/vim-interestingwords'
 call plug#end()
 
 " GENERAL VIMPROVEMENTS  
