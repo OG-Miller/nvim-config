@@ -3,7 +3,6 @@ filetype off 			" required
 set number
 set splitbelow
 
-
 call plug#begin('~/.config/nvim/plugged')
 Plug 'jacoborus/tender.vim'
 Plug 'itchyny/lightline.vim'
@@ -47,6 +46,13 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 command Term :split <bar> :term
 "tnoremap <leader><Esc> <C-\><C-n> use this to escape integrated terminal once
 "you figure out how to escape from terminal mode
+
+
+" TABS
+" leader tm tabmove <num> you want to move current tab to
+map <leader>tm :tabmove
+map <leader>tc :tabclose<cr>
+
 
 " RANGER 
 let g:ranger_explorer_keymap_edit    = '<C-o>'
