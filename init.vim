@@ -19,9 +19,19 @@ Plug 'iberianpig/ranger-explorer.vim'
 Plug 'lfv89/vim-interestingwords'
 call plug#end()
 
+
 " GENERAL VIMPROVEMENTS  
 noremap Y y$
- " noremap <leader>/ :s/^/// /
+" keep cursor in middle of page
+:set so=999
+
+
+" RUST
+" format on save
+let g:rustfmt_autosave = 1
+syntax enable
+filetype plugin indent on
+
 
 " COLORSCHEMES 
 let g:lightline = { 'colorscheme': 'tender' }
