@@ -1,12 +1,13 @@
 set nocompatible 		" be iMproved, required
 filetype off 			" required
+set wrap linebreak nolist       " wrap line on full words
 set number
 set splitbelow
 
 call plug#begin('~/.config/nvim/plugged')
+" themes
 Plug 'jacoborus/tender.vim'
 Plug 'itchyny/lightline.vim'
-"Plug 'morhetz/gruvbox' 
 Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
@@ -20,25 +21,35 @@ Plug 'lfv89/vim-interestingwords'
 call plug#end()
 
 
+
 " GENERAL VIMPROVEMENTS  
+" copy highlighted to global clipboard
+vnoremap <leader>c "*y
+
+
 noremap Y y$
+set tabstop=4
+set shiftwidth=4
+set expandtab
 " keep cursor in middle of page
 :set so=999
-
-
+" remove search highlights on escape
+nnoremap <silent> <ESC> :noh<CR>
+" remove search result highlight on escape
+nnoremap <silent> <esc> :noh<return>
+" remove search result highlight on escape
+nnoremap <silent> <esc> :noh<return>
+" stop command k from clearing the terminal in vim (this doesn't work)
+" nnoremap <D-k> <esc>
 " RUST
 " format on save
 let g:rustfmt_autosave = 1
 syntax enable
 filetype plugin indent on
-
-
 " COLORSCHEMES 
 let g:lightline = { 'colorscheme': 'tender' }
-
 syntax enable
-colorscheme tender
-
+colorscheme tender 
 "if (has("termguicolors"))
 " set termguicolors
 "endif
@@ -73,9 +84,9 @@ let g:ranger_explorer_keymap_vsplit  = '<C-v>'
 
 nnoremap <silent><Leader>n :RangerOpenCurrentFile<CR>
 nnoremap <silent><Leader>c :RangerOpenCurrentDir<CR>
-nnoremap <silent><Leader>f :RangerOpenProjectRootDir<CR>
+"nnoremap <silent><Leader>f :RangerOpenProjectRootDir<CR>
 		
-"COC - auto completion 
+" COC - auto completion 
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
