@@ -1,5 +1,6 @@
 set nocompatible 		" be iMproved, required
 filetype off 			" required
+set wrap linebreak nolist       " wrap line on full words
 set number
 set splitbelow
 
@@ -21,18 +22,20 @@ call plug#end()
 
 
 " GENERAL VIMPROVEMENTS  
+" copy highlighted to global clipboard
+vnoremap <leader>c "*y
+
+
 noremap Y y$
 " keep cursor in middle of page
 :set so=999
-
-
+" remove search highlights on escape
+nnoremap <silent> <ESC> :noh<CR>
 " RUST
 " format on save
 let g:rustfmt_autosave = 1
 syntax enable
 filetype plugin indent on
-
-
 " COLORSCHEMES 
 let g:lightline = { 'colorscheme': 'tender' }
 
@@ -73,7 +76,7 @@ let g:ranger_explorer_keymap_vsplit  = '<C-v>'
 
 nnoremap <silent><Leader>n :RangerOpenCurrentFile<CR>
 nnoremap <silent><Leader>c :RangerOpenCurrentDir<CR>
-nnoremap <silent><Leader>f :RangerOpenProjectRootDir<CR>
+"nnoremap <silent><Leader>f :RangerOpenProjectRootDir<CR>
 		
 "COC - auto completion 
 
