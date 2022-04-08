@@ -27,8 +27,9 @@ call plug#end()
 vnoremap <leader>c "*y
 set encoding=utf-8
 
-" Abbreviations
-ab :tick: ✓ 
+" Abbreviations (don't leave whitespace after the symbol, unless you want to)
+ab :tick: ✓
+ab :dot: •
 
 noremap Y y$
 set tabstop=4
