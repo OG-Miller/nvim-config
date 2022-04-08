@@ -25,7 +25,10 @@ call plug#end()
 " GENERAL VIMPROVEMENTS  
 " copy highlighted to global clipboard
 vnoremap <leader>c "*y
+set encoding=utf-8
 
+" Abbreviations
+ab :tick: ✓ 
 
 noremap Y y$
 set tabstop=4
@@ -42,6 +45,7 @@ nnoremap <silent> <esc> :noh<return>
 nnoremap <silent> <esc> :noh<return>
 " stop command k from clearing the terminal in vim (this doesn't work)
 " nnoremap <D-k> <esc>
+
 " RUST
 " format on save
 let g:rustfmt_autosave = 1
