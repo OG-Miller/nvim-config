@@ -31,6 +31,7 @@ noremap Y y$
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set cursorline
 " keep cursor in middle of page
 :set so=999
 " remove search highlights on escape
