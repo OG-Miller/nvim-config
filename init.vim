@@ -26,6 +26,10 @@ call plug#end()
 " copy highlighted to global clipboard
 vnoremap <leader>c "*y
 set encoding=utf-8
+" NAVIGATION
+" use Ctrl J + K to jump up and down bigly
+"nnoremap <C-j> <C-d>
+"nnoremap <C-k> <C-u>
 
 " Abbreviations (don't leave whitespace after the symbol, unless you want to)
 ab :tick: ✓
