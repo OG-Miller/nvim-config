@@ -9,6 +9,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'jacoborus/tender.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'rust-lang/rust.vim'
@@ -20,15 +22,16 @@ Plug 'iberianpig/ranger-explorer.vim'
 Plug 'lfv89/vim-interestingwords'
 call plug#end()
 
-
+let g:gitgutter_terminal_reports_focus=0
 
 " GENERAL VIMPROVEMENTS  
 " copy highlighted to global clipboard
 vnoremap <leader>c "*y
 set encoding=utf-8
+
 " NAVIGATION
 " use Ctrl J + K to jump up and down bigly
-"nnoremap <C-j> <C-d>
+"nnoremap <C-k> <C-d>
 "nnoremap <C-k> <C-u>
 
 " Abbreviations (don't leave whitespace after the symbol, unless you want to)
@@ -50,6 +53,7 @@ nnoremap <silent> <esc> :noh<return>
 nnoremap <silent> <esc> :noh<return>
 " stop command k from clearing the terminal in vim (this doesn't work)
 " nnoremap <D-k> <esc>
+
 
 " RUST
 " format on save
