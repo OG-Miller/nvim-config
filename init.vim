@@ -31,12 +31,20 @@ set encoding=utf-8
 
 " NAVIGATION
 " use Ctrl J + K to jump up and down bigly
-"nnoremap <C-k> <C-d>
-"nnoremap <C-k> <C-u>
+nnoremap <C-9> <C-d>
+nnoremap <C-0> <C-u>
+" use Ctrl o (in insert mode) to create new line and indent - for fn body
+inoremap <C-o> <Enter><Esc><S-o> 
+
 
 " Abbreviations (don't leave whitespace after the symbol, unless you want to)
 ab :tick: ✓
+ab :box: [ ] 
 ab :dot: •
+" todolist
+inoremap tdl <cmd>:r ~/.config/nvim/text/todo.txt<CR>
+nnoremap <C-x> mmF[<space>r✓<esc>`mll
+nnoremap <C-space> mnF[<space>r<space><esc>`nhh
 
 noremap Y y$
 set tabstop=4
