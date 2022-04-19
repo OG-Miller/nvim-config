@@ -52,6 +52,9 @@ set expandtab
 set cursorline
 " keep cursor in middle of page
 :set so=999
+" toggle cursor to stay in middle of page
+command Moff :set so=1
+command Mon :set so=999
 " remove search highlights on escape
 nnoremap <silent> <ESC> :noh<CR>
 " remove search result highlight on escape
