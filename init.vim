@@ -28,7 +28,7 @@ let g:gitgutter_terminal_reports_focus=0
 " copy highlighted to global clipboard
 vnoremap <leader>c "*y
 set encoding=utf-8
-
+noremap Y y$
 " NAVIGATION
 " use Ctrl J + K to jump up and down bigly
 nnoremap <C-9> <C-d>
@@ -42,11 +42,10 @@ ab :tick: ✓
 ab :box: [ ] 
 ab :dot: •
 " todolist
-inoremap tdl <cmd>:r ~/.config/nvim/text/todo.txt<CR>
-nnoremap <C-x> mmF[<space>r✓<esc>`mll
-nnoremap <C-space> mnF[<space>r<space><esc>`nhh
+ab :to: <cmd>:r ~/.config/nvim/text/todo.txt<CR><Esc>2j$ :startinsert!
+nnoremap <C-x> mm$F[<space>r✓<esc>`mll
+nnoremap <C-space> mn$F[<space>r<space><esc>`nhh
 
-noremap Y y$
 set tabstop=4
 set shiftwidth=4
 set expandtab
