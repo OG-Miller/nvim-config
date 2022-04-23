@@ -91,7 +91,13 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 command Term :split <bar> :term
 "tnoremap <leader><Esc> <C-\><C-n> use this to escape integrated terminal once
 "you figure out how to escape from terminal mode
-
+" easier split screen navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" On split screen, make left side smaller by 20 (opening nerdtree resets to middle)
+nnoremap <leader>< <C-W>20<
 
 " TABS
 " leader tm tabmove <num> you want to move current tab to
