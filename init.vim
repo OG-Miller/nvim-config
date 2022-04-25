@@ -30,9 +30,6 @@ vnoremap <leader>c "*y
 set encoding=utf-8
 noremap Y y$
 " NAVIGATION
-" use Ctrl J + K to jump up and down bigly
-nnoremap <C-9> <C-d>
-nnoremap <C-0> <C-u>
 " use Ctrl o (in insert mode) to create new line and indent - for fn body
 inoremap <C-o> <Enter><Esc><S-o> 
 
@@ -71,6 +68,7 @@ nnoremap <silent> <esc> :noh<return>
 let g:rustfmt_autosave = 1
 syntax enable
 filetype plugin indent on
+ab :pl: println!(" :{:?}", ); 
 " COLORSCHEMES 
 let g:lightline = { 'colorscheme': 'tender' }
 syntax enable
@@ -99,6 +97,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " On split screen, make left side smaller by 20 (opening nerdtree resets to middle)
 nnoremap <leader>< <C-W>20<
+nnoremap <leader>> <C-W>20>
+nnoremap <leader>- <C-W>10-
+nnoremap <leader>= <C-W>10+
 
 " TABS
 " leader tm tabmove <num> you want to move current tab to
