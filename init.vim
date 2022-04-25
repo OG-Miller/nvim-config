@@ -41,6 +41,7 @@ inoremap <C-o> <Enter><Esc><S-o>
 ab :tick: ✓
 ab :box: [ ] 
 ab :dot: •
+ab :?: ¿
 " todolist
 ab :to: <cmd>:r ~/.config/nvim/text/todo.txt<CR><Esc>2j$ :startinsert!
 nnoremap <C-x> mm$F[<space>r✓<esc>`mll
