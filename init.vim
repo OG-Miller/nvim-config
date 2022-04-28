@@ -18,7 +18,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'BurntSushi/ripgrep'
-Plug 'iberianpig/ranger-explorer.vim'
+"Plug 'iberianpig/ranger-explorer.vim'
 Plug 'lfv89/vim-interestingwords'
 call plug#end()
 
@@ -63,6 +63,13 @@ nnoremap <silent> <esc> :noh<return>
 " nnoremap <D-k> <esc>
 
 
+" TYPESCRIPT see: https://pragmaticpineapple.com/ultimate-vim-typescript-setup/
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+
 " RUST
 " format on save
 let g:rustfmt_autosave = 1
@@ -83,6 +90,11 @@ colorscheme tender
 "map <silent> <C-n> :NERDTreeFocus<CR>
 map <leader>b :NERDTreeFocus<CR>
 
+" NETRW (vim-native alternative to nerdtree) see: https://shapeshed.com/vim-netrw/
+"let g:netrw_winsize = 25
+"map <leader>b :Vexplore<CR>
+"let g:netrw_browse_split = 4 " open file in new vertical split
+"let g:netrw_banner = 0 " remove banner
 " TELESCOPE 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 
@@ -108,10 +120,10 @@ map <leader>tc :tabclose<cr>
 
 
 " RANGER 
-let g:ranger_explorer_keymap_edit    = '<C-o>'
-let g:ranger_explorer_keymap_tabedit = '<C-t>'
-let g:ranger_explorer_keymap_split   = '<C-s>'
-let g:ranger_explorer_keymap_vsplit  = '<C-v>'
+"let g:ranger_explorer_keymap_edit    = '<C-o>'
+"let g:ranger_explorer_keymap_tabedit = '<C-t>'
+"let g:ranger_explorer_keymap_split   = '<C-s>'
+"let g:ranger_explorer_keymap_vsplit  = '<C-v>'
 
 
 nnoremap <silent><Leader>n :RangerOpenCurrentFile<CR>
