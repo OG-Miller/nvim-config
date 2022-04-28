@@ -100,7 +100,9 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 
 " INTEGRATED TERMINAL 
 command Term :split <bar> :term
-"tnoremap <leader><Esc> <C-\><C-n> use this to escape integrated terminal once
+nnoremap <leader>t :split <bar> :term<cr>
+" use this to escape integrated terminal once
+tnoremap <leader><Esc> <C-\><C-n>:q<cr>
 "you figure out how to escape from terminal mode
 " easier split screen navigation
 nnoremap <C-h> <C-w>h
