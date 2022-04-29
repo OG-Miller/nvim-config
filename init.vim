@@ -89,6 +89,7 @@ colorscheme tender
 " NERDTREE   
 "map <silent> <C-n> :NERDTreeFocus<CR>
 map <leader>b :NERDTreeFocus<CR>
+" map <cmd>b :NERDTreeFocus<CR> <-- why doesn't this work?
 
 " NETRW (vim-native alternative to nerdtree) see: https://shapeshed.com/vim-netrw/
 "let g:netrw_winsize = 25
