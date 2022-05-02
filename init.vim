@@ -33,6 +33,13 @@ noremap Y y$
 " use Ctrl o (in insert mode) to create new line and indent - for fn body
 inoremap <C-o> <Enter><Esc><S-o> 
 
+" briefly highlight yanked text
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+augroup END
+
+
 
 " Abbreviations (don't leave whitespace after the symbol, unless you want to)
 ab :tick: ✓
