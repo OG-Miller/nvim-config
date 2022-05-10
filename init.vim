@@ -19,7 +19,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-"Plug 'iberianpig/ranger-explorer.vim'
 Plug 'lfv89/vim-interestingwords'
 call plug#end()
 
@@ -159,17 +158,6 @@ nnoremap <leader>= <C-W>10+
 map <leader>tm :tabmove
 map <leader>tc :tabclose<cr>
 
-
-" RANGER 
-"let g:ranger_explorer_keymap_edit    = '<C-o>'
-"let g:ranger_explorer_keymap_tabedit = '<C-t>'
-"let g:ranger_explorer_keymap_split   = '<C-s>'
-"let g:ranger_explorer_keymap_vsplit  = '<C-v>'
-
-
-nnoremap <silent><Leader>n :RangerOpenCurrentFile<CR>
-nnoremap <silent><Leader>c :RangerOpenCurrentDir<CR>
-"nnoremap <silent><Leader>f :RangerOpenProjectRootDir<CR>
 		
 " COC - auto completion 
 " use <tab> for trigger completion and navigate to the next complete item
