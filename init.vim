@@ -72,6 +72,7 @@ nnoremap <silent> <esc> :noh<return>
 nnoremap <silent> <esc> :noh<return>
 " stop command k from clearing the terminal in vim (this doesn't work)
 " nnoremap <D-k> <esc>
+" CTRLp
 
 
 " TYPESCRIPT see: https://pragmaticpineapple.com/ultimate-vim-typescript-setup/
@@ -88,6 +89,7 @@ syntax enable
 filetype plugin indent on
 "ab :pl: println!(" :{:?}", ); 
 
+<<<<<<< Updated upstream
 " LIGHTLINE
 let g:lightline = { 'colorscheme':'tender' }
 syntax enable
@@ -103,6 +105,17 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
+=======
+" COLORSCHEMES 
+"let g:lightline = { 'colorscheme':'tender' }
+"syntax enable
+
+"CTRLp
+" open recently viewed files list
+nnoremap <leader>r :CtrlPMRUFiles<cr>
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+>>>>>>> Stashed changes
  
 
 if (has("termguicolors"))
@@ -113,12 +126,16 @@ endif
 colorscheme monokai
 "set background=dark
 "colorscheme lightline 
-
+au ColorScheme * hi Normal ctermbg=none guibg=none
 " NERDTREE   
 "map <silent> <C-n> :NERDTreeFocus<CR>
 map <leader>b :NERDTreeFocus<CR>
 " map <cmd>b :NERDTreeFocus<CR> <-- why doesn't this work?
+<<<<<<< Updated upstream
 
+=======
+">
+>>>>>>> Stashed changes
 " NETRW (vim-native alternative to nerdtree) see: https://shapeshed.com/vim-netrw/
 "let g:netrw_winsize = 25
 "map <leader>b :Vexplore<CR>
