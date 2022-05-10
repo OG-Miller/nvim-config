@@ -6,14 +6,12 @@ set splitbelow
 
 call plug#begin('~/.config/nvim/plugged')
 " themes
-"Plug 'NLKNguyen/papercolor-theme'
 Plug 'tanvirtin/monokai.nvim'
-"Plug 'morhetz/gruvbox'
+Plug 'itchyny/lightline.vim' 
 "Plug 'overcache/NeoSolarized'
-Plug 'nvim-lualine/lualine.nvim/'
-Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'nvim-lualine/lualine.nvim'
+"Plug 'kyazdani42/nvim-web-devicons'
 Plug 'jacoborus/tender.vim'
-"Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
@@ -90,25 +88,37 @@ syntax enable
 filetype plugin indent on
 "ab :pl: println!(" :{:?}", ); 
 
-" COLORSCHEMES 
-"let g:lightline = { 'colorscheme':'tender' }
-"syntax enable
-
+" LIGHTLINE
+let g:lightline = { 'colorscheme':'tender' }
+syntax enable
+"removes the duplicated'insert / 'normal' mode etc under the bar
+set noshowmode 
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
  
 
 if (has("termguicolors"))
  set termguicolors
 endif
 
+" COLORSCHEMES 
 colorscheme monokai
-set background=dark
+"set background=dark
 "colorscheme lightline 
 
 " NERDTREE   
 "map <silent> <C-n> :NERDTreeFocus<CR>
 map <leader>b :NERDTreeFocus<CR>
 " map <cmd>b :NERDTreeFocus<CR> <-- why doesn't this work?
->
+
 " NETRW (vim-native alternative to nerdtree) see: https://shapeshed.com/vim-netrw/
 "let g:netrw_winsize = 25
 "map <leader>b :Vexplore<CR>
@@ -169,35 +179,35 @@ inoremap <silent><expr> <Tab>
 
 " lua line -----------------
  
-lua << END
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {},
-    always_divide_middle = true,
-    globalstatus = false,
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {}
-}
-END
+"lua << END
+"require('lualine').setup {
+"  options = {
+"    icons_enabled = true,
+"    theme = 'auto',
+"    component_separators = { left = '', right = ''},
+"    section_separators = { left = '', right = ''},
+"    disabled_filetypes = {},
+"    always_divide_middle = true,
+"    globalstatus = false,
+"  },
+"  sections = {
+"    lualine_a = {'mode'},
+"    lualine_b = {'branch', 'diff', 'diagnostics'},
+"    lualine_c = {'filename'},
+"    lualine_x = {'encoding', 'fileformat', 'filetype'},
+"    lualine_y = {'progress'},
+"    lualine_z = {'location'}
+"  },
+"  inactive_sections = {
+"    lualine_a = {},
+"    lualine_b = {},
+"    lualine_c = {'filename'},
+"    lualine_x = {'location'},
+"    lualine_y = {},
+"    lualine_z = {}
+"  },
+"  tabline = {},
+"  extensions = {}
+"}
+"END
 
