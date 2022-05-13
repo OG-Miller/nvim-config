@@ -4,8 +4,11 @@ set wrap linebreak nolist       " wrap line on full words
 set number
 set splitbelow
 
+" Plugins -------------------
+
 call plug#begin('~/.config/nvim/plugged')
-" themes
+
+Plug 'neovim/nvim-lspconfig'
 Plug 'tanvirtin/monokai.nvim'
 Plug 'itchyny/lightline.vim' 
 "Plug 'overcache/NeoSolarized'
@@ -19,7 +22,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'lfv89/vim-interestingwords'
+
 call plug#end()
+
+lua require('og-miller')
 
 let g:gitgutter_terminal_reports_focus=0
 
