@@ -3,13 +3,21 @@ filetype off 			" required
 set wrap linebreak nolist       " wrap line on full words
 set number
 set splitbelow
+set mouse=a
+set ignorecase
+set smartcase
+set encoding=utf-8
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set cursorline
+set so=999 " keep cursor in middle of page
 
 " Plugins -------------------
 
 call plug#begin('~/.config/nvim/plugged')
-
 Plug 'neovim/nvim-lspconfig'
-Plug 'tanvirtin/monokai.nvim'
+"Plug 'tanvirtin/monokai.nvim'
 Plug 'itchyny/lightline.vim' 
 "Plug 'overcache/NeoSolarized'
 Plug 'jacoborus/tender.vim'
@@ -32,7 +40,6 @@ let g:gitgutter_terminal_reports_focus=0
 " GENERAL VIMPROVEMENTS ---------------------- 
 " copy highlighted to global clipboard
 vnoremap <leader>c "*y
-set encoding=utf-8
 " yank to end of line
 noremap Y y$
 
@@ -57,12 +64,6 @@ ab :to: <cmd>:r ~/.config/nvim/text/todo.txt<CR><Esc>2j$ :startinsert!
 nnoremap <C-y> mm$F[<space>r✓<esc>`mll
 nnoremap <C-n> mn$F[<space>r<space><esc>`nhh 
 
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set cursorline
-" keep cursor in middle of page
-set so=999
 " toggle cursor to stay in middle of page
 command Moff :set so=1
 command Mon :set so=999
@@ -114,7 +115,7 @@ if (has("termguicolors"))
 endif
 
 " COLORSCHEMES 
-colorscheme monokai
+colorscheme tender
 " NERDTREE   
 "map <silent> <C-n> :NERDTreeFocus<CR>
 map <leader>b :NERDTreeFocus<CR>
