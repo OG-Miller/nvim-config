@@ -14,35 +14,34 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-"Plug 'iberianpig/ranger-explorer.vim'
 Plug 'lfv89/vim-interestingwords'
 call plug#end()
 
 let g:gitgutter_terminal_reports_focus=0
 
-" GENERAL VIMPROVEMENTS  
+" GENERAL VIMPROVEMENTS ---------------------- 
 " copy highlighted to global clipboard
 vnoremap <leader>c "*y
 set encoding=utf-8
 " yank to end of line
 noremap Y y$
 
-" NAVIGATION
+" NAVIGATION ----------------------------------
 " use Ctrl o (in insert mode) to create new line and indent - for fn body
 inoremap <C-o> <Enter><Esc><S-o> 
-
+" auto enter :b for faster buffer search
+nnoremap :ls :ls<CR>:b<Space>
 " briefly highlight yanked text
 augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
 
-" Abbreviations (don't leave whitespace after the symbol, unless you want to)
+" Abbreviations ------------------------------
 ab :tick: ✓
 ab :box: [ ] 
 ab :dot: •
@@ -64,29 +63,31 @@ command Mon :set so=999
 " remove search highlights on escape
 nnoremap <silent> <ESC> :noh<CR>
 
-" TYPESCRIPT see: https://pragmaticpineapple.com/ultimate-vim-typescript-setup/
+" TYPESCRIPT ------------------------------
+" see: https://pragmaticpineapple.com/ultimate-vim-typescript-setup/
 "nmap <silent> gd <Plug>(coc-definition)
 "nmap <silent> gy <Plug>(coc-type-definition)
 "nmap <silent> gi <Plug>(coc-implementation)
 "nmap <silent> gr <Plug>(coc-references)
 
 
-" RUST
+" RUST ------------------------------------
 " format on save
 let g:rustfmt_autosave = 1
-syntax enable
+"syntax enable
 filetype plugin indent on
 
-" LIGHTLINE
-let g:lightline = { 'colorscheme':'tender' }
+" LIGHTLINE -------------------------------
+"let g:lightline = { 'colorscheme':'tender' }
 syntax enable
 "removes the duplicated 'insert / 'normal' mode etc under status bar 
 set noshowmode 
+set statusline+=%F
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \   'left': [ [ 'mode', 'paste' ]],
+      \   'right': [ [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead'
@@ -108,9 +109,6 @@ endif
 
 " COLORSCHEMES 
 colorscheme monokai
-"set background=dark
-"colorscheme lightline 
-au ColorScheme * hi Normal ctermbg=none guibg=none
 " NERDTREE   
 "map <silent> <C-n> :NERDTreeFocus<CR>
 map <leader>b :NERDTreeFocus<CR>
