@@ -1,6 +1,5 @@
-require('lspconfig').tsserver.setup{
-}
-
+require('lspconfig').tsserver.setup{}
+require('lspconfig').rust_analyzer.setup{}
 -- all below pasted from https://github.com/neovim/nvim-lspconfig#Keybindings-and-completion
 
 -- Mappings.
