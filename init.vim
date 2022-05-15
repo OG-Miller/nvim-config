@@ -17,9 +17,11 @@ set so=999 " keep cursor in middle of page
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neovim/nvim-lspconfig'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'vim-scripts/SlateDark'
 "Plug 'tanvirtin/monokai.nvim'
 Plug 'itchyny/lightline.vim' 
+Plug 'gilgigilgil/anderson.vim'
 "Plug 'overcache/NeoSolarized'
 Plug 'jacoborus/tender.vim'
 Plug 'preservim/nerdtree'
@@ -116,10 +118,11 @@ set termguicolors
 endif
 
 " COLORSCHEMES 
-"colorscheme tender
-colorscheme slateDark
+colorscheme tender 
 " specific cursorline setting for 'slateDark' colorscheme
-hi CursorLine term=bold cterm=bold guibg=#333333
+"hi CursorLine term=bold cterm=bold guibg=#333333
+
+
 " NERDTREE   
 "map <silent> <C-n> :NERDTreeFocus<CR>
 map <leader>b :NERDTreeFocus<CR>
