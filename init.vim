@@ -12,6 +12,7 @@ set shiftwidth=4
 set expandtab
 set cursorline
 set so=999 " keep cursor in middle of page
+set conceallevel=2 " hides _ and * in markdown files
 
 " Plugins -------------------
 
@@ -21,7 +22,7 @@ Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'vim-scripts/SlateDark'
 "Plug 'tanvirtin/monokai.nvim'
 Plug 'itchyny/lightline.vim' 
-Plug 'gilgigilgil/anderson.vim'
+Plug 'gilgigilgil/anderson.vim' " harmonious lightline themes: Tomorrow_Night / seoul256
 "Plug 'overcache/NeoSolarized'
 Plug 'jacoborus/tender.vim'
 Plug 'preservim/nerdtree'
@@ -94,7 +95,7 @@ syntax enable
 set noshowmode 
 set statusline+=%F
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'Tomorrow_Night',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ]],
       \   'right': [ [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
@@ -118,10 +119,13 @@ set termguicolors
 endif
 
 " COLORSCHEMES 
-colorscheme tender 
 " specific cursorline setting for 'slateDark' colorscheme
 "hi CursorLine term=bold cterm=bold guibg=#333333
-
+colorscheme anderson
+" specific cursorline setting for 'slateDark' colorscheme
+"hi CursorLine term=bold cterm=bold guibg=#333333
+" specific cursorline setting for 'anderson' colorscheme
+hi CursorLine term=bold cterm=bold guibg=#333333
 
 " NERDTREE   
 "map <silent> <C-n> :NERDTreeFocus<CR>
