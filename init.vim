@@ -18,12 +18,15 @@ set conceallevel=2 " hides _ and * in markdown files
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neovim/nvim-lspconfig'
+Plug 'navarasu/onedark.nvim'
+Plug 'shaunsingh/nord.nvim'
+Plug 'EdenEast/nightfox.nvim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'tanvirtin/monokai.nvim'
 Plug 'vim-scripts/SlateDark'
-"Plug 'tanvirtin/monokai.nvim'
 Plug 'itchyny/lightline.vim' 
 Plug 'gilgigilgil/anderson.vim' " harmonious lightline themes: Tomorrow_Night / seoul256
-"Plug 'overcache/NeoSolarized'
+Plug 'overcache/NeoSolarized'
 Plug 'jacoborus/tender.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
@@ -65,6 +68,8 @@ augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
+" close quickfix faster (for when got to definition opens quickfix)
+nnoremap <leader><Esc> :cclose<cr>
 
 " Abbreviations ------------------------------
 ab :tick: ✓
@@ -115,7 +120,9 @@ let g:lightline = {
 
 " COLORSCHEMES 
 "let g:lightline = { 'colorscheme':'tender' }
-"syntax enable
+
+
+
 
 "CTRLp
 " open recently viewed files list - deprecated, use buffer list  :ls :b
@@ -129,11 +136,14 @@ endif
 " COLORSCHEMES 
 " specific cursorline setting for 'slateDark' colorscheme
 "hi CursorLine term=bold cterm=bold guibg=#333333
-colorscheme anderson
+"let g:onedark_config = {
+"    \ 'style': 'warm',
+"\}
+colorscheme anderson 
 " specific cursorline setting for 'slateDark' colorscheme
 "hi CursorLine term=bold cterm=bold guibg=#333333
 " specific cursorline setting for 'anderson' colorscheme
-hi CursorLine term=bold cterm=bold guibg=#333333
+hi CursorLine term=bold cterm=bold guibg=#4c4c4c
 
 " NERDTREE   
 "map <silent> <C-n> :NERDTreeFocus<CR>
@@ -147,9 +157,6 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 " INTEGRATED TERMINAL 
 command Term :split <bar> :term
 nnoremap <leader>t :split <bar> :term<cr>
-" use this to escape integrated terminal once
-"you figure out how to escape from terminal mode
-tnoremap <leader><Esc> <C-\><C-n>:q<cr>
 " easier split screen navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
