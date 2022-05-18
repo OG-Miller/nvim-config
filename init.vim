@@ -13,7 +13,7 @@ set expandtab
 set cursorline
 set so=999 " keep cursor in middle of page
 set conceallevel=2 " hides _ and * in markdown files
-
+"set bufhidden=hide
 " Plugins -------------------
 
 call plug#begin('~/.config/nvim/plugged')
@@ -28,7 +28,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'gilgigilgil/anderson.vim' " harmonious lightline themes: Tomorrow_Night / seoul256
 Plug 'overcache/NeoSolarized'
 Plug 'jacoborus/tender.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
@@ -153,6 +153,12 @@ map <leader>b :NERDTreeFocus<CR>
 nnoremap <leader>f <cmd>Telescope find_files<cr>
 " below is currently not working - maybe burntsushi / ripgrep issue?
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+
+"autocomplete temporary solution 
+"TODO: try to find auto-suggestions in :h autocomplete
+inoremap kk <C-x><C-o>
+" this stops an empty 'scratch' buffer opening when you select an option
+set completeopt=menu,menuone
 
 " INTEGRATED TERMINAL 
 command Term :split <bar> :term
