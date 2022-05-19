@@ -128,6 +128,13 @@ let g:lightline = {
 " open recently viewed files list - deprecated, use buffer list  :ls :b
 nnoremap <leader>r :CtrlPMRUFiles<cr>  
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+" remove .js from search, TODO: make this work in 'custom-ignore' section
+"let g:ctrlp_user_command = 'find %s -type f | grep -v ".js"'
+" Ignore some folders and files for CtrlP indexing
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.yardoc\|dist-es\|lib\|node_modules\|log\|tmp$',
+  \ 'file': '\.so$\|\.dat$|\.DS_Store$|\.js$'
+  \ }
 
 if (has("termguicolors"))
 set termguicolors
