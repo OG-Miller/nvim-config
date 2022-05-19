@@ -58,7 +58,8 @@ let g:gitgutter_terminal_reports_focus=0
 vnoremap <leader>c "*y
 " yank to end of line
 noremap Y y$
-
+nnoremap "" "0p
+ 
 " NAVIGATION ----------------------------------
 " use Ctrl o (in insert mode) to create new line and indent - for fn body
 inoremap <C-o> <Enter><Esc><S-o> 
