@@ -13,6 +13,7 @@ set expandtab
 set cursorline
 set so=999 " keep cursor in middle of page
 set conceallevel=2 " hides _ and * in markdown files
+set nofoldenable    " disable folding
 "set bufhidden=hide
 " Plugins -------------------
 
