@@ -14,7 +14,7 @@ set cursorline
 set so=999 " keep cursor in middle of page
 set conceallevel=2 " hides _ and * in markdown files
 set nofoldenable    " disable folding
-"set bufhidden=hide
+" set rnu! toggle relative numbers
 " Plugins -------------------
 
 call plug#begin('~/.config/nvim/plugged')
@@ -59,6 +59,9 @@ vnoremap <leader>c "*y
 " yank to end of line
 noremap Y y$
 nnoremap "" "0p
+" de is awkward to press, but it puts cursor in better positon
+" to paste word in place of deleted word, than dw does.
+nnoremap dw de
  
 " NAVIGATION ----------------------------------
 " use Ctrl o (in insert mode) to create new line and indent - for fn body
