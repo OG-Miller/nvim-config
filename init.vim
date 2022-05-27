@@ -14,6 +14,7 @@ set cursorline
 set so=999 " keep cursor in middle of page
 set conceallevel=2 " hides _ and * in markdown files
 set nofoldenable    " disable folding
+set relativenumber
 " set rnu! toggle relative numbers
 " Plugins -------------------
 
@@ -153,7 +154,7 @@ endif
 "let g:onedark_config = {
 "    \ 'style': 'warm',
 "\}
-colorscheme anderson 
+colorscheme tender 
 " specific cursorline setting for 'slateDark' colorscheme
 "hi CursorLine term=bold cterm=bold guibg=#333333
 " specific cursorline setting for 'anderson' colorscheme
@@ -162,6 +163,7 @@ hi CursorLine term=bold cterm=bold guibg=#4c4c4c
 " NERDTREE   
 "map <silent> <C-n> :NERDTreeFocus<CR>
 map <leader>b :NERDTreeFocus<CR>
+let NERDTreeQuitOnOpen=1
 
 " TELESCOPE 
 nnoremap <leader>f <cmd>Telescope find_files<cr>
