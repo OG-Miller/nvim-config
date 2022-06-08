@@ -62,7 +62,7 @@ noremap Y y$
 nnoremap "" "0p
 " de is awkward to press, but it puts cursor in better positon
 " to paste word in place of deleted word, than dw does.
-nnoremap dw de
+"nnoremap dw de
 nnoremap + o+ 
 
  
