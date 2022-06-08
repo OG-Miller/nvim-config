@@ -12,7 +12,7 @@ set shiftwidth=4
 set expandtab
 set cursorline
 set so=999 " keep cursor in middle of page
-set conceallevel=2 " hides _ and * in markdown files
+"set conceallevel=2 " hides _ and * in markdown files
 set nofoldenable    " disable folding
 set relativenumber
 " set rnu! toggle relative numbers
@@ -71,6 +71,12 @@ nnoremap + o+
 inoremap <C-o> <Enter><Esc><S-o> 
 " auto enter :b for faster buffer search
 nnoremap :ls :ls<CR>:b<Space>
+" use backspace to go to previous buffer
+nnoremap <BS> :bp<CR>
+" use enter to go to previous buffer //TODO: this breaks when entering a file
+" from quickfix list, so choose something better
+nnoremap <leader><BS> :bn<CR>
+ 
 " briefly highlight yanked text
 augroup highlight_yank
     autocmd!
@@ -78,6 +84,8 @@ augroup highlight_yank
 augroup END
 " close quickfix faster (for when got to definition opens quickfix)
 nnoremap <leader><Esc> :cclose<cr>
+" open quickfix faster
+nnoremap <leader><Enter> :copen 20<cr>
 
 " Abbreviations ------------------------------
 ab :tick: ✓
