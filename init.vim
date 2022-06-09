@@ -65,6 +65,9 @@ nnoremap "" "0p
 nnoremap dw de
 nnoremap + o+ 
 
+" GREP / SEARCH -------------------------------
+" open grep in ready position
+nnoremap <Space>g q:<insert>grep '' packages/**/*.{ts,tsx} --exclude=\*.d.ts<esc>F'<insert>
  
 " NAVIGATION ----------------------------------
 " use Ctrl o (in insert mode) to create new line and indent - for fn body
@@ -175,8 +178,6 @@ let NERDTreeQuitOnOpen=1
 
 " TELESCOPE 
 nnoremap <leader>f <cmd>Telescope find_files<cr>
-" below is currently not working - maybe burntsushi / ripgrep issue?
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 
 "autocomplete temporary solution 
 "TODO: try to find auto-suggestions in :h autocomplete
