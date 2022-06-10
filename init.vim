@@ -127,7 +127,7 @@ syntax enable
 set noshowmode 
 set statusline+=%F
 let g:lightline = {
-      \ 'colorscheme': 'Tomorrow_Night',
+      \ 'colorscheme': 'tender',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ]],
       \   'right': [ [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
