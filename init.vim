@@ -74,11 +74,12 @@ nnoremap <Space>g q:<insert>grep '' packages/**/*.{ts,tsx} --exclude=\*.d.ts<esc
 inoremap <C-o> <Enter><Esc><S-o> 
 " auto enter :b for faster buffer search
 nnoremap :ls :ls<CR>:b<Space>
-" use backspace to go to previous buffer
-nnoremap <BS> :bp<CR>
-" use enter to go to previous buffer //TODO: this breaks when entering a file
+" use backspace to go to previous buffer & print file path
+nnoremap <BS> :bp<CR> <C-G>
+" use enter to go to previous buffer & print file path
+" //TODO: this breaks when entering a file
 " from quickfix list, so choose something better
-nnoremap <leader><BS> :bn<CR>
+nnoremap <leader><BS> :bn<CR> <C-G>
  
 " briefly highlight yanked text
 augroup highlight_yank
