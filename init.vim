@@ -130,8 +130,8 @@ set statusline+=%F
 let g:lightline = {
       \ 'colorscheme': 'tender',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ]],
-      \   'right': [ [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'left': [ [ 'mode', 'paste','gitbranch' ]],
+      \   'right': [ [ 'readonly', 'relativepath', 'modified' ] ],
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead'
