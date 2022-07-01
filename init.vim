@@ -67,7 +67,7 @@ nnoremap + <esc>o+
 
 " GREP / SEARCH -------------------------------
 " open grep in ready position
-nnoremap <Space>g q:<insert>grep '' packages/**/*.{ts,tsx} --exclude=\*.d.ts<esc>F'<insert>
+nnoremap <Space>g q:<insert>grep! '' packages/**/*.{ts,tsx} --exclude=\*.d.ts<esc>F'<insert>
  
 " NAVIGATION ----------------------------------
 " use Ctrl o (in insert mode) to create new line and indent - for fn body
