@@ -64,6 +64,9 @@ nnoremap "" "0p
 " to paste word in place of deleted word, than dw does.
 "nnoremap dw de
 nnoremap + <esc>o+ 
+" TODO: make this work
+" remap highlight word to also copy to clipboard since it's a regular use
+"nnoremap viw viw c"*y
 
 " GREP / SEARCH -------------------------------
 " open grep in ready position
@@ -176,6 +179,8 @@ hi CursorLine term=bold cterm=bold guibg=#4c4c4c
 "map <silent> <C-n> :NERDTreeFocus<CR>
 map <leader>b :NERDTreeFocus<CR>
 let NERDTreeQuitOnOpen=1
+" find current file in the NerdTree
+nnoremap :nf :NERDTreeFind<CR>
 
 " TELESCOPE 
 nnoremap <leader>f <cmd>Telescope find_files<cr>
