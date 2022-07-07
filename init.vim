@@ -184,10 +184,10 @@ nnoremap :nf :NERDTreeFind<CR>
 
 " TELESCOPE 
 nnoremap <leader>f <cmd>Telescope find_files<cr>
-
 "autocomplete temporary solution 
 "TODO: try to find auto-suggestions in :h autocomplete
-inoremap kk <C-x><C-o>
+"inoremap kk <C-x><C-o>
+inoremap kk <C-n>
 " this stops an empty 'scratch' buffer opening when you select an option
 set completeopt=menu,menuone
 
