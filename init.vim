@@ -69,6 +69,8 @@ nnoremap + <esc>o+
 "nnoremap viw viw c"*y
 
 " GREP / SEARCH -------------------------------
+" immediate grep word under cursor
+nnoremap <Space>G viw "*y q:<insert>grep! '' packages/**/*.{ts,tsx} --exclude=\*.d.ts<esc>F'<insert> <C-v> <CR>
 " open grep in ready position
 nnoremap <Space>g q:<insert>grep! '' packages/**/*.{ts,tsx} --exclude=\*.d.ts<esc>F'<insert>
  
