@@ -70,9 +70,9 @@ nnoremap + <esc>o+
 
 " GREP / SEARCH -------------------------------
 " immediate grep word under cursor
-nnoremap <Space>G viw "*y q:<insert>grep! '' packages/**/*.{ts,tsx} --exclude=\*.d.ts<esc>F'<insert> <C-v> <CR>
+nnoremap <Space>G viwy q:<insert>grep! '' packages/**/*.{ts,tsx} --exclude=\*.{d.ts,cy.ts}<esc>2F'p<CR>
 " open grep in ready position
-nnoremap <Space>g q:<insert>grep! '' packages/**/*.{ts,tsx} --exclude=\*.d.ts<esc>F'<insert>
+nnoremap <Space>g q:<insert>grep! '' packages/**/*.{ts,tsx} --exclude=\*.{d.ts,cy.ts}<esc>F'<insert>
  
 " NAVIGATION ----------------------------------
 " use Ctrl o (in insert mode) to create new line and indent - for fn body
