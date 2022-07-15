@@ -40,6 +40,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'ThePrimeagen/harpoon'
 Plug 'lfv89/vim-interestingwords'
 " auto complete ------
 Plug 'neovim/nvim-lspconfig'
@@ -96,6 +97,13 @@ augroup END
 nnoremap <leader><Esc> :cclose<cr>
 " open quickfix faster
 nnoremap <leader><Enter> :copen 20<cr>
+
+" Harpoon
+nnoremap <leader>a :lua require("harpoon.mark").add_file()<cr>
+nnoremap <leader>ls :lua require("harpoon.ui").toggle_quick_menu()<cr>
+
+
+
 
 " Abbreviations ------------------------------
 ab :tick: ✓
