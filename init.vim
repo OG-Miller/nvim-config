@@ -14,7 +14,7 @@ set cursorline
 set so=999 " keep cursor in middle of page
 "set conceallevel=2 " hides _ and * in markdown files
 "set nofoldenable    " disable folding
-set relativenumber
+"set relativenumber
 " set rnu! toggle relative numbers
 " Plugins -------------------
 packadd cfilter
@@ -39,8 +39,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'ThePrimeagen/harpoon'
 Plug 'lfv89/vim-interestingwords'
 " auto complete ------
 Plug 'neovim/nvim-lspconfig'
@@ -98,12 +96,32 @@ nnoremap <leader><Esc> :cclose<cr>
 " open quickfix faster
 nnoremap <leader><Enter> :copen 20<cr>
 
-" Harpoon
-nnoremap <leader>a :lua require("harpoon.mark").add_file()<cr>
-nnoremap <leader>ls :lua require("harpoon.ui").toggle_quick_menu()<cr>
+" SPEAR--------------------------------------------------------------->
+" todo: make invisible to jumplist
+" todo: remove duplicates 
 
+"nnoremap <leader>c :call bufexists('SPEAR')<cr>
+"nnoremap <leader>c :call appendbufline('SPEAR', line(), ['some', 'text'])
 
-
+func AddFileToSpear()
+    :keepjumps e SPEAR | r !echo # 
+    :setlocal buftype=nofile 
+    :setlocal nobuflisted
+    :setlocal bufhidden 
+    ":w
+    :e# 
+    echo '----SPEARED!---->'
+endfunc
+nnoremap <leader>f :call AddFileToSpear()<cr>
+"nnoremap <silent> <leader>D :edit ./SPEAR<cr>
+func OpenSpear()
+    :keepjumps exe ":edit ./SPEAR"
+   " :setlocal buftype=
+    :setlocal nobuflisted
+    :setlocal bufhidden=hide
+endfunc
+nnoremap <silent> <leader>F :keepjumps :call OpenSpear()<cr>
+" --------------------------------------------------------------------->
 
 " Abbreviations ------------------------------
 ab :tick: ✓
@@ -193,18 +211,13 @@ let NERDTreeQuitOnOpen=1
 " find current file in the NerdTree
 nnoremap :nf :NERDTreeFind<CR>
 
-" TELESCOPE 
-nnoremap <leader>f <cmd>Telescope find_files<cr>
-"autocomplete temporary solution 
-"TODO: try to find auto-suggestions in :h autocomplete
-"inoremap kk <C-x><C-o>
 inoremap kk <C-n>
 " this stops an empty 'scratch' buffer opening when you select an option
 set completeopt=menu,menuone
 
 " INTEGRATED TERMINAL 
 command Term :split <bar> :term
-nnoremap <leader>t :split <bar> :term<cr>
+"nnoremap <leader>t :split <bar> :term<cr>
 " easier split screen navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
