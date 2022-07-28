@@ -55,14 +55,12 @@ lua require('og-miller')
 let g:gitgutter_terminal_reports_focus=0
 
 " GENERAL VIMPROVEMENTS ---------------------- 
+nnoremap :reload :source $MYVIMRC<CR>
 " copy highlighted to global clipboard
 vnoremap <leader>c "*y
 " yank to end of line
 noremap Y y$
 nnoremap "" "0p
-" de is awkward to press, but it puts cursor in better positon
-" to paste word in place of deleted word, than dw does.
-"nnoremap dw de
 nnoremap + <esc>o+ 
 " TODO: make this work
 " remap highlight word to also copy to clipboard since it's a regular use
@@ -78,14 +76,13 @@ nnoremap <Space>g q:<insert>grep! '' packages/**/*.{ts,tsx} --exclude=\*.{d.ts,c
 " use Ctrl o (in insert mode) to create new line and indent - for fn body
 inoremap <C-o> <Enter><Esc><S-o> 
 " auto enter :b for faster buffer search
-nnoremap :ls :ls<CR>:b<Space>
-" use backspace to go to previous buffer 
-nnoremap <Space><BS> :bp<CR>
-" use enter to go to previous buffer
-" //TODO: this breaks when entering a file
-" from quickfix list, so choose something better
-nnoremap <leader><BS> :bn<CR>
- 
+"nnoremap :ls :ls<CR>:b<Space>
+" auto enter :buffer for buffer search (with t flag for 'order by Time')
+nnoremap :ls :ls t<CR>:b<Space>
+"nnoremap <leader>q :echo execute('ls t')->split("\n")[:10]->join("\n")<cr>:buffer<space>
+
+
+
 " briefly highlight yanked text
 augroup highlight_yank
     autocmd!
@@ -95,6 +92,8 @@ augroup END
 nnoremap <leader><Esc> :cclose<cr>
 " open quickfix faster
 nnoremap <leader><Enter> :copen 20<cr>
+" to say no example-file.ts, would filter out all example-file.ts in quickfix
+nnoremap :no :echo :Cfilter!<cr> 
 
 " SPEAR--------------------------------------------------------------->
 " todo: make invisible to jumplist
@@ -122,6 +121,8 @@ func OpenSpear()
 endfunc
 nnoremap <silent> <leader>F :keepjumps :call OpenSpear()<cr>
 " --------------------------------------------------------------------->
+" toggle text wrap
+nnoremap <leader>w :set wrap!<cr> 
 
 " Abbreviations ------------------------------
 ab :tick: ✓
@@ -145,6 +146,8 @@ nnoremap <silent> <ESC> :noh<CR>
 "nmap <silent> gy <Plug>(coc-type-definition)
 "nmap <silent> gi <Plug>(coc-implementation)
 "nmap <silent> gr <Plug>(coc-references)
+" format file
+nnoremap :fmt <cmd>lua vim.lsp.buf.formatting()<CR>
 
 
 " RUST ------------------------------------
@@ -174,6 +177,7 @@ let g:lightline = {
 "let g:lightline = { 'colorscheme':'tender' }
 
 
+nnoremap <leader>q :echo execute('ls t')->split("\n")[:10]->join("\n")<cr>:buffer<space>
 
 
 "CTRLp
@@ -210,6 +214,8 @@ map <leader>b :NERDTreeFocus<CR>
 let NERDTreeQuitOnOpen=1
 " find current file in the NerdTree
 nnoremap :nf :NERDTreeFind<CR>
+" refresh file tree
+nnoremap :nr :NERDTreeRefreshRoot<CR>
 
 inoremap kk <C-n>
 " this stops an empty 'scratch' buffer opening when you select an option
