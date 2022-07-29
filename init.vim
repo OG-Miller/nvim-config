@@ -71,7 +71,11 @@ nnoremap + <esc>o+
 nnoremap <Space>G viwy q:<insert>grep! '' packages/**/*.{ts,tsx} --exclude=\*.{d.ts,cy.ts}<esc>2F'p<CR>
 " open grep in ready position
 nnoremap <Space>g q:<insert>grep! '' packages/**/*.{ts,tsx} --exclude=\*.{d.ts,cy.ts}<esc>F'<insert>
- 
+" step to next quickfix item 
+nnoremap <leader>] :cnext<CR>
+" step to previous quickfix item 
+nnoremap <leader>[ :cprev<CR>
+
 " NAVIGATION ----------------------------------
 " use Ctrl o (in insert mode) to create new line and indent - for fn body
 inoremap <C-o> <Enter><Esc><S-o> 
