@@ -8,18 +8,6 @@ cmp.setup {
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.abort(),
 
-     sources = {
-    { name = "gh_issues" },
-
-    -- Youtube: Could enable this only for lua, but nvim_lua handles that already.
-    { name = "nvim_lua" },
-
-    { name = "nvim_lsp" },
-    { name = "path" },
- -- { name = "luasnip" }, don't have a snippet plugin yet
-    { name = "buffer", keyword_length = 5 },
-  },
-
 }
 
 }

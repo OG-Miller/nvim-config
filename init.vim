@@ -1,5 +1,11 @@
 "tender set nocompatible 		" be iMproved, required
 filetype off 			" required
+
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ --no-heading
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
 set wrap linebreak nolist       " wrap line on full words
 set number
 set splitbelow
@@ -16,6 +22,7 @@ set so=999 " keep cursor in middle of page
 "set nofoldenable    " disable folding
 "set relativenumber
 " set rnu! toggle relative numbers
+"
 " Plugins -------------------
 packadd cfilter
 
@@ -39,7 +46,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'lfv89/vim-interestingwords'
 " auto complete ------
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -47,6 +53,9 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+" snippet engine
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 " ------------
 call plug#end()
 
@@ -62,15 +71,12 @@ vnoremap <leader>c "*y
 noremap Y y$
 nnoremap "" "0p
 nnoremap + <esc>o+ 
-" TODO: make this work
-" remap highlight word to also copy to clipboard since it's a regular use
-"nnoremap viw viw c"*y
 
 " GREP / SEARCH -------------------------------
 " immediate grep word under cursor
-nnoremap <Space>G viwy q:<insert>grep! '' packages/**/*.{ts,tsx} --exclude=\*.{d.ts,cy.ts}<esc>2F'p<CR>
+nnoremap <Space>G viwy q:<insert>grep! '' packages/**/*.{ts,tsx} <esc>2F'p<CR>
 " open grep in ready position
-nnoremap <Space>g q:<insert>grep! '' packages/**/*.{ts,tsx} --exclude=\*.{d.ts,cy.ts}<esc>F'<insert>
+nnoremap <Space>g q:<insert>grep! '' packages/**/*.{ts,tsx} <esc>F'<insert>
 " step to next quickfix item 
 nnoremap <leader>] :cnext<CR>
 " step to previous quickfix item 
@@ -96,8 +102,10 @@ augroup END
 nnoremap <leader><Esc> :cclose<cr>
 " open quickfix faster
 nnoremap <leader><Enter> :copen 20<cr>
-" to say no example-file.ts, would filter out all example-file.ts in quickfix
-nnoremap :no :echo :Cfilter!<cr> 
+" filter out schemas eg :no schemas
+nnoremap :no :Cfilter!  
+" keep only schemas eg :only schemas
+nnoremap :only :Cfilter 
 
 " SPEAR--------------------------------------------------------------->
 " todo: make invisible to jumplist
@@ -191,6 +199,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " remove .js from search, TODO: make this work in 'custom-ignore' section
 "let g:ctrlp_user_command = 'find %s -type f | grep -v ".js"'
 " Ignore some folders and files for CtrlP indexing
+let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.yardoc\|dist-es\|lib\|node_modules\|log\|tmp$',
   \ 'file': '\.so$\|\.dat$|\.DS_Store$|\.js$'
@@ -207,6 +216,8 @@ endif
 "    \ 'style': 'warm',
 "\}
 colorscheme tender 
+
+
 " specific cursorline setting for 'slateDark' colorscheme
 "hi CursorLine term=bold cterm=bold guibg=#333333
 " specific cursorline setting for 'anderson' colorscheme
@@ -221,10 +232,83 @@ nnoremap :nf :NERDTreeFind<CR>
 " refresh file tree
 nnoremap :nr :NERDTreeRefreshRoot<CR>
 
-inoremap kk <C-n>
-" this stops an empty 'scratch' buffer opening when you select an option
-set completeopt=menu,menuone
+" AUTOCOMPLETE ------------------------------------------
+" Set completeopt to have a better completion experience
+ set completeopt=menuone,noinsert,noselect
 
+let g:completion_enable_auto_popup = 0
+lua <<EOF
+  -- Setup nvim-cmp.
+  local cmp = require'cmp'
+
+  cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      end,
+    },
+    window = {
+      -- completion = cmp.config.window.bordered(),
+      -- documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' }, -- For vsnip users.
+      -- { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+--  -- Set configuration for specific filetype.
+--  cmp.setup.filetype('gitcommit', {
+--    sources = cmp.config.sources({
+--      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+--    }, {
+--      { name = 'buffer' },
+--    })
+--  })
+
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+
+  -- Setup lspconfig.
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+  require('lspconfig')['tsserver'].setup {
+    capabilities = capabilities
+  }
+EOF
+" ----------------------------------------------------------------
+ 
 " INTEGRATED TERMINAL 
 command Term :split <bar> :term
 "nnoremap <leader>t :split <bar> :term<cr>
