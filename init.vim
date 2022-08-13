@@ -18,6 +18,7 @@ set shiftwidth=4
 set expandtab
 set cursorline
 set so=999 " keep cursor in middle of page
+set hls ic
 "set conceallevel=2 " hides _ and * in markdown files
 "set nofoldenable    " disable folding
 "set relativenumber
@@ -91,6 +92,8 @@ inoremap <C-o> <Enter><Esc><S-o>
 nnoremap :ls :ls t<CR>:b<Space>
 "nnoremap <leader>q :echo execute('ls t')->split("\n")[:10]->join("\n")<cr>:buffer<space>
 
+" test go to definition
+"nnoremap gd <cmd>lua vim.lsp.buf.definition()<CR>
 
 
 " briefly highlight yanked text
