@@ -19,9 +19,6 @@ set expandtab
 set cursorline
 set so=999 " keep cursor in middle of page
 set hls ic
-"set conceallevel=2 " hides _ and * in markdown files
-"set nofoldenable    " disable folding
-"set relativenumber
 " set rnu! toggle relative numbers
 "
 " Plugins -------------------
@@ -72,6 +69,11 @@ vnoremap <leader>c "*y
 noremap Y y$
 nnoremap "" "0p
 nnoremap + <esc>o+ 
+" briefly highlight yanked text
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+augroup END
 
 " GREP / SEARCH -------------------------------
 " immediate grep word under cursor
@@ -86,21 +88,13 @@ nnoremap <leader>[ :cprev<CR>
 " NAVIGATION ----------------------------------
 " use Ctrl o (in insert mode) to create new line and indent - for fn body
 inoremap <C-o> <Enter><Esc><S-o> 
-" auto enter :b for faster buffer search
-"nnoremap :ls :ls<CR>:b<Space>
+" niko's buffer navigation suggestion
+"nnoremap <leader>q :echo execute('ls t')->split("\n")[:10]->join("\n")<cr>:buffer<space>
 " auto enter :buffer for buffer search (with t flag for 'order by Time')
 nnoremap :ls :ls t<CR>:b<Space>
 "nnoremap <leader>q :echo execute('ls t')->split("\n")[:10]->join("\n")<cr>:buffer<space>
+" ---------------------------------------------
 
-" test go to definition
-"nnoremap gd <cmd>lua vim.lsp.buf.definition()<CR>
-
-
-" briefly highlight yanked text
-augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
-augroup END
 " close quickfix faster (for when got to definition opens quickfix)
 nnoremap <leader><Esc> :cclose<cr>
 " open quickfix faster
@@ -162,7 +156,7 @@ nnoremap <silent> <ESC> :noh<CR>
 "nmap <silent> gi <Plug>(coc-implementation)
 "nmap <silent> gr <Plug>(coc-references)
 " format file
-nnoremap :fmt <cmd>lua vim.lsp.buf.formatting()<CR>
+" nnoremap :fmt <cmd>lua vim.lsp.buf.formatting()<CR>
 
 
 " RUST ------------------------------------
@@ -191,8 +185,6 @@ let g:lightline = {
 " COLORSCHEMES 
 "let g:lightline = { 'colorscheme':'tender' }
 
-
-nnoremap <leader>q :echo execute('ls t')->split("\n")[:10]->join("\n")<cr>:buffer<space>
 
 
 "CTRLp
