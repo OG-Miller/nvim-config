@@ -32,10 +32,15 @@ Plug 'EdenEast/nightfox.nvim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'tanvirtin/monokai.nvim'
 Plug 'vim-scripts/SlateDark'
-Plug 'itchyny/lightline.vim' 
+" Lualine & Dev Icons ---
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+" Lualine & Dev Icons ---
+"Plug 'itchyny/lightline.vim' 
 Plug 'gilgigilgil/anderson.vim' " harmonious lightline themes: Tomorrow_Night / seoul256
 Plug 'overcache/NeoSolarized'
 Plug 'jacoborus/tender.vim'
+Plug 'projekt0n/github-nvim-theme'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -165,23 +170,23 @@ let g:rustfmt_autosave = 1
 "syntax enable
 filetype plugin indent on
 
-" LIGHTLINE -------------------------------
-"let g:lightline = { 'colorscheme':'tender' }
-syntax enable
-"removes the duplicated 'insert / 'normal' mode etc under status bar 
-set noshowmode 
-set statusline+=%F
-let g:lightline = {
-      \ 'colorscheme': 'tender',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste','gitbranch' ]],
-      \   'right': [ [ 'readonly', 'relativepath', 'modified' ] ],
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
-
+" " LIGHTLINE -------------------------------
+" "let g:lightline = { 'colorscheme':'tender' }
+" syntax enable
+" "removes the duplicated 'insert / 'normal' mode etc under status bar 
+" set noshowmode 
+" set statusline+=%F
+" let g:lightline = {
+"       \ 'colorscheme': 'github-nvim-theme',
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste','gitbranch' ]],
+"       \   'right': [ [ 'readonly', 'relativepath', 'modified' ] ],
+"       \ },
+"       \ 'component_function': {
+"       \   'gitbranch': 'FugitiveHead'
+"       \ },
+"       \ }
+" 
 " COLORSCHEMES 
 "let g:lightline = { 'colorscheme':'tender' }
 
@@ -210,13 +215,15 @@ endif
 "let g:onedark_config = {
 "    \ 'style': 'warm',
 "\}
-colorscheme tender 
+
+"colorscheme tender 
+"require('github-theme').setup()
 
 
 " specific cursorline setting for 'slateDark' colorscheme
 "hi CursorLine term=bold cterm=bold guibg=#333333
 " specific cursorline setting for 'anderson' colorscheme
-hi CursorLine term=bold cterm=bold guibg=#4c4c4c
+"hi CursorLine term=bold cterm=bold guibg=#4c4c4c
 
 " NERDTREE   
 "map <silent> <C-n> :NERDTreeFocus<CR>
