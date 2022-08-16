@@ -6,6 +6,7 @@ if executable("rg")
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
+set autoread
 set wrap linebreak nolist       " wrap line on full words
 set number
 set splitbelow
