@@ -110,7 +110,7 @@ nnoremap :no :Cfilter!
 " keep only schemas eg :only schemas
 nnoremap :only :Cfilter 
 
-" SPEAR--------------------------------------------------------------->
+" SPEAR----WIP ------------------------------------->
 " todo: make invisible to jumplist
 " todo: remove duplicates 
 
@@ -163,7 +163,6 @@ nnoremap <silent> <ESC> :noh<CR>
 "nmap <silent> gr <Plug>(coc-references)
 " format file
 " nnoremap :fmt <cmd>lua vim.lsp.buf.formatting()<CR>
-
 
 " RUST ------------------------------------
 " format on save
@@ -228,8 +227,10 @@ endif
 
 " NERDTREE   
 "map <silent> <C-n> :NERDTreeFocus<CR>
+" show bookmarks list at top of nerdTree
+"let NERDTreeShowBookmarks=1
 map <leader>b :NERDTreeFocus<CR>
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=3
 " find current file in the NerdTree
 nnoremap :nf :NERDTreeFind<CR>
 " refresh file tree
@@ -238,7 +239,6 @@ nnoremap :nr :NERDTreeRefreshRoot<CR>
 " AUTOCOMPLETE ------------------------------------------
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
-
 let g:completion_enable_auto_popup = 0
 
 " INTEGRATED TERMINAL 
