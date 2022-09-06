@@ -86,7 +86,7 @@ augroup END
 " immediate grep word under cursor
 nnoremap <Space>G viwy q:<insert>grep! '' packages/**/*.{ts,tsx} <esc>2F'p<CR>
 " open grep in ready position
-nnoremap <Space>g q:<insert>grep! '' packages/**/*.{ts,tsx} <esc>F'<insert>
+nnoremap <Space>g q:<insert>grep! -i '' packages/**/*.{ts,tsx}<esc>F'<insert>
 " step to next quickfix item 
 nnoremap <leader>] :cnext<CR>
 " step to previous quickfix item 
