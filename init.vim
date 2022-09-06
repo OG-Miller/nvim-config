@@ -10,9 +10,10 @@ set autoread
 set wrap linebreak nolist       " wrap line on full words
 set number
 set splitbelow
+set splitright
 set mouse=a
-set ignorecase
-set smartcase
+"set ignorecase
+"set smartcase
 set encoding=utf-8
 set tabstop=4
 set shiftwidth=4
