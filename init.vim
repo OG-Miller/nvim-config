@@ -21,7 +21,8 @@ set expandtab
 set cursorline
 set so=999 " keep cursor in middle of page
 set hls ic
-" set rnu! toggle relative numbers
+set relativenumber
+"set rnu! (toggle relative numbers)
 "
 " Plugins -------------------
 packadd cfilter
@@ -126,6 +127,7 @@ func AddFileToSpear()
     ":w
     :e# 
     echo '----SPEARED!---->'
+    echo ''
 endfunc
 nnoremap <leader>f :call AddFileToSpear()<cr>
 "nnoremap <silent> <leader>D :edit ./SPEAR<cr>
