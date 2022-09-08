@@ -193,7 +193,8 @@ filetype plugin indent on
 " COLORSCHEMES 
 "let g:lightline = { 'colorscheme':'tender' }
 
-
+" folding
+nnoremap <leader>z vi{<left>zf
 
 "CTRLp
 " open recently viewed files list - deprecated, use buffer list  :ls :b
