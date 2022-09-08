@@ -196,6 +196,11 @@ filetype plugin indent on
 " folding
 nnoremap <leader>z vi{<left>zf
 
+" commenting (h for hide)
+vnoremap <C-h> o0<C-v><S-i>//<space><esc> 
+" uncommenting (y is above h)
+vnoremap <C-y> :s/\/\/ /<CR>
+
 "CTRLp
 " open recently viewed files list - deprecated, use buffer list  :ls :b
 nnoremap <leader>r :CtrlPMRUFiles<cr>  
