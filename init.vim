@@ -27,6 +27,8 @@ set relativenumber
 packadd cfilter
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'navarasu/onedark.nvim'
@@ -196,7 +198,7 @@ filetype plugin indent on
  
 " indent-blankline
 let g:indent_blankline_char_list = ['|']
-"
+"let g:indent_blankline_use_treesitter = v:true
 
 " folding
 nnoremap <leader>z vi{<left>zf
