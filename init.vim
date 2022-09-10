@@ -5,7 +5,6 @@ if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-
 set autoread
 set wrap linebreak nolist       " wrap line on full words
 set number
@@ -15,7 +14,7 @@ set mouse=a
 "set ignorecase
 "set smartcase
 set encoding=utf-8
-set tabstop=4
+set tabstop=8
 set shiftwidth=4
 set expandtab
 set cursorline
@@ -28,6 +27,7 @@ set relativenumber
 packadd cfilter
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'navarasu/onedark.nvim'
 Plug 'shaunsingh/nord.nvim'
@@ -126,13 +126,14 @@ func AddFileToSpear()
     :setlocal bufhidden 
     ":w
     :e# 
-    echo '----SPEARED!---->'
+    echo '--spear-->'
     echo ''
 endfunc
 nnoremap <leader>f :call AddFileToSpear()<cr>
 "nnoremap <silent> <leader>D :edit ./SPEAR<cr>
 func OpenSpear()
-    :keepjumps exe ":edit ./SPEAR"
+    ":keepjumps exe ":edit ./SPEAR"
+    :exe "keepjumps :edit ./SPEAR"
    " :setlocal buftype=
     :setlocal nobuflisted
     :setlocal bufhidden=hide
@@ -192,6 +193,10 @@ filetype plugin indent on
 " 
 " COLORSCHEMES 
 "let g:lightline = { 'colorscheme':'tender' }
+ 
+" indent-blankline
+let g:indent_blankline_char_list = ['|']
+"
 
 " folding
 nnoremap <leader>z vi{<left>zf
@@ -217,6 +222,9 @@ let g:ctrlp_custom_ignore = {
 if (has("termguicolors"))
 set termguicolors
 endif
+
+
+
 
 " COLORSCHEMES 
 " specific cursorline setting for 'slateDark' colorscheme
