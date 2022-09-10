@@ -5,6 +5,10 @@ if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
+" this starts the file unfolded
+" zi toggles between foldenabled / nofoldenabled
+set nofoldenable
+set foldmethod=indent
 set autoread
 set wrap linebreak nolist       " wrap line on full words
 set number
@@ -200,8 +204,6 @@ filetype plugin indent on
 let g:indent_blankline_char_list = ['|']
 "let g:indent_blankline_use_treesitter = v:true
 
-" folding
-nnoremap <leader>z vi{<left>zf
 
 " commenting (h for hide)
 vnoremap <C-h> o0<C-v><S-i>//<space><esc> 
