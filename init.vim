@@ -165,6 +165,7 @@ command Mon :set so=999
 " remove search highlights on escape
 nnoremap <silent> <ESC> :noh<CR>
 
+
 " TYPESCRIPT ------------------------------
 " see: https://pragmaticpineapple.com/ultimate-vim-typescript-setup/
 "nmap <silent> gd <Plug>(coc-definition)
@@ -200,8 +201,9 @@ filetype plugin indent on
 " COLORSCHEMES 
 "let g:lightline = { 'colorscheme':'tender' }
  
-" indent-blankline
-let g:indent_blankline_char_list = ['|']
+" INDENT-BLANKLINE
+"below only required if you want something other than the thin line
+"let g:indent_blankline_char_list = ['|']
 "let g:indent_blankline_use_treesitter = v:true
 
 

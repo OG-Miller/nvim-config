@@ -12,5 +12,6 @@ require'nvim-treesitter.configs'.setup {
     -- `false` will disable the whole extension
     enable = true,
     additional_vim_regex_highlighting = false,
-  },
+  }
 }
+
