@@ -212,8 +212,8 @@ vnoremap <C-h> o0<C-v><S-i>//<space><esc>
 " uncommenting (y is above h)
 vnoremap <C-y> :s/\/\/ /<CR>
 
-"CTRLp
-" set up ctrlp to use ripgrep
+"CTRLp ------------------------------------------------
+" Use ripgrep
 if executable("rg")
     set grepprg=rg\ --color=never
     let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
@@ -222,16 +222,15 @@ else
     let g:ctrl_clear_cache_on_exit = 0 
 endif
 
+" Most Recently Used Files?
 nnoremap <leader>r :CtrlPMRUFiles<cr>  
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-" remove .js from search, TODO: make this work in 'custom-ignore' section
-"let g:ctrlp_user_command = 'find %s -type f | grep -v ".js"'
 " Ignore some folders and files for CtrlP indexing
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+" Show dotfiles
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.yardoc\|dist-es\|lib\|node_modules\|log\|tmp$',
-  \ 'file': '\.so$\|\.dat$|\.DS_Store$|\.js$'
-  \ }
+" Search by filename (as opposed to full path) as the default
+let g:ctrlp_by_filename = 1
+"/CTRLp ------------------------------------------------
 
 if (has("termguicolors"))
 set termguicolors
