@@ -214,13 +214,13 @@ vnoremap <C-y> :s/\/\/ /<CR>
 
 "CTRLp ------------------------------------------------
 " Use ripgrep
-if executable("rg")
-    set grepprg=rg\ --color=never
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-    let g:ctrlp_use_caching = 0
-else
-    let g:ctrl_clear_cache_on_exit = 0 
-endif
+"if executable("rg")
+"    set grepprg=rg\ --color=never
+"    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+"    let g:ctrlp_use_caching = 0
+"else
+"    let g:ctrl_clear_cache_on_exit = 0 
+"endif
 
 " Most Recently Used Files?
 nnoremap <leader>r :CtrlPMRUFiles<cr>  
@@ -229,6 +229,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " Show dotfiles
 let g:ctrlp_show_hidden = 1
 " Search by filename (as opposed to full path) as the default
+" ( use <C-b> to switch between modes )
 let g:ctrlp_by_filename = 1
 "/CTRLp ------------------------------------------------
 
