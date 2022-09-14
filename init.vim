@@ -213,7 +213,15 @@ vnoremap <C-h> o0<C-v><S-i>//<space><esc>
 vnoremap <C-y> :s/\/\/ /<CR>
 
 "CTRLp
-" open recently viewed files list - deprecated, use buffer list  :ls :b
+" set up ctrlp to use ripgrep
+if executable("rg")
+    set grepprg=rg\ --color=never
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    let g:ctrlp_use_caching = 0
+else
+    let g:ctrl_clear_cache_on_exit = 0 
+endif
+
 nnoremap <leader>r :CtrlPMRUFiles<cr>  
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " remove .js from search, TODO: make this work in 'custom-ignore' section
