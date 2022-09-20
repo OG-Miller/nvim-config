@@ -260,7 +260,7 @@ endif
 "map <silent> <C-n> :NERDTreeFocus<CR>
 " show bookmarks list at top of nerdTree
 "let NERDTreeShowBookmarks=1
-map <leader>b :NERDTreeFocus<CR>
+map <silent> <leader>b :NERDTreeFocus<CR>
 let NERDTreeQuitOnOpen=3
 " find current file in the NerdTree
 nnoremap :nf :NERDTreeFind<CR>
