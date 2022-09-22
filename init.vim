@@ -24,7 +24,7 @@ set expandtab
 set cursorline
 set so=999 " keep cursor in middle of page
 set hls ic
-set relativenumber
+"set relativenumber
 "set rnu! (toggle relative numbers)
 "
 " Plugins -------------------
