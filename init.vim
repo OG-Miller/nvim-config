@@ -25,6 +25,7 @@ set cursorline
 set so=999 " keep cursor in middle of page
 set hls ic
 "set relativenumber
+nnoremap <leader>r :set rnu! <cr>
 "set rnu! (toggle relative numbers)
 "
 " Plugins -------------------
@@ -222,8 +223,6 @@ vnoremap <C-y> :s/\/\/ /<CR>
 "    let g:ctrl_clear_cache_on_exit = 0 
 "endif
 
-" Most Recently Used Files?
-nnoremap <leader>r :CtrlPMRUFiles<cr>  
 " Ignore some folders and files for CtrlP indexing
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|lib'
 " Show dotfiles
