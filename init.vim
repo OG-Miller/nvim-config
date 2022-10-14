@@ -92,6 +92,7 @@ augroup END
 
 " GREP / SEARCH -------------------------------
 " immediate grep word under cursor
+" todo: consider updating grep to use this syntax grep! -i -t ts -t js 'Boolean('
 nnoremap <Space>G viwy q:<insert>grep! '' packages/**/*.{ts,tsx} <esc>2F'p<CR>
 " open grep in ready position
 nnoremap <Space>g q:<insert>grep! -i '' packages/**/*.{ts,tsx}<esc>F'<insert>
