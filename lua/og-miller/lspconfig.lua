@@ -19,7 +19,21 @@ vim.diagnostic.config({virtual_text = true})
  -- Enable completion triggered by <c-x><c-o>
  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
+ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
 
+   vim.lsp.handlers.hover, {
+     -- Use a sharp border with when using hover
+     border = "single"
+   }
+ )
+
+ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+
+   vim.lsp.handlers.signature_help, {
+     -- Use a sharp border when using signature help
+     border = "single"
+   }
+ )
  -- Mappings.
  -- See `:help vim.lsp.*` for documentation on any of the below functions
  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
