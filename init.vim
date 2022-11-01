@@ -18,8 +18,8 @@ set mouse=a
 "set ignorecase
 "set smartcase
 set encoding=utf-8
-set tabstop=8
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set cursorline
 set so=999 " keep cursor in middle of page
