@@ -1,4 +1,4 @@
-"tender set nocompatible 		" be iMproved, required
+set nocompatible 		" be iMproved, required
 filetype off 			" required
 
 if executable("rg")
@@ -183,6 +183,11 @@ let g:rustfmt_autosave = 1
 "syntax enable
 filetype plugin indent on
 
+
+" STATUS BAR (at top of windows) use this with neovim 0.8 or higher
+ set winbar=%f
+ set laststatus=3
+
 " " LIGHTLINE -------------------------------
 " "let g:lightline = { 'colorscheme':'tender' }
 " syntax enable
@@ -247,7 +252,7 @@ endif
 "    \ 'style': 'warm',
 "\}
 
-"colorscheme tender 
+" colorscheme tender 
 "require('github-theme').setup()
 
 
