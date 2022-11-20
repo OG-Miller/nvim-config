@@ -10,7 +10,7 @@ endif
 set nofoldenable
 set foldmethod=indent
 set autoread
-set wrap linebreak nolist       " wrap line on full words
+set nowrap linebreak nolist       " wrap line on full words
 set number
 set splitbelow
 set splitright
@@ -25,7 +25,7 @@ set cursorline
 set so=999 " keep cursor in middle of page
 set hls ic
 "set relativenumber
-nnoremap <leader>r :set rnu! <cr>
+nnoremap <leader>r :bufdo set rnu! <cr>
 "set rnu! (toggle relative numbers)
 "
 " Plugins -------------------
@@ -46,7 +46,7 @@ Plug 'vim-scripts/SlateDark'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 " Lualine & Dev Icons ---
-"Plug 'itchyny/lightline.vim' 
+Plug 'itchyny/lightline.vim' 
 Plug 'gilgigilgil/anderson.vim' " harmonious lightline themes: Tomorrow_Night / seoul256
 Plug 'overcache/NeoSolarized'
 Plug 'jacoborus/tender.vim'
@@ -103,7 +103,7 @@ nnoremap <leader>[ :cprev<CR>
 
 " NAVIGATION ----------------------------------
 " use Ctrl o (in insert mode) to create new line and indent - for fn body
-inoremap <C-o> <Enter><Esc><S-o> 
+inoremap <C-o> <Enter><Esc><S-o><tab>
 " niko's buffer navigation suggestion
 "nnoremap <leader>q :echo execute('ls t')->split("\n")[:10]->join("\n")<cr>:buffer<space>
 " auto enter :buffer for buffer search (with t flag for 'order by Time')
@@ -184,27 +184,32 @@ let g:rustfmt_autosave = 1
 filetype plugin indent on
 
 
-" STATUS BAR (at top of windows) use this with neovim 0.8 or higher
- set winbar=%f
+" WINBAR/STATUS BAR (at top of windows) use this with neovim 0.8 or higher
+" set statusline+=%F
+set winbar=%t
+
  set laststatus=3
+ "hi WinBar guibg=#036EDB
+ "hi WinBar guifg=#036EDB
+ hi WinBar guifg=#fcb814
 
 " " LIGHTLINE -------------------------------
-" "let g:lightline = { 'colorscheme':'tender' }
-" syntax enable
-" "removes the duplicated 'insert / 'normal' mode etc under status bar 
-" set noshowmode 
-" set statusline+=%F
-" let g:lightline = {
-"       \ 'colorscheme': 'github-nvim-theme',
-"       \ 'active': {
-"       \   'left': [ [ 'mode', 'paste','gitbranch' ]],
-"       \   'right': [ [ 'readonly', 'relativepath', 'modified' ] ],
-"       \ },
-"       \ 'component_function': {
-"       \   'gitbranch': 'FugitiveHead'
-"       \ },
-"       \ }
-" 
+ "let g:lightline = { 'colorscheme':'tender' }
+ syntax enable
+ "removes the duplicated 'insert / 'normal' mode etc under status bar 
+ set noshowmode 
+ set statusline+=%F
+ let g:lightline = {
+       \ 'colorscheme': 'nord',
+       \ 'active': {
+       \   'left': [ [ 'mode', 'paste','gitbranch' ]],
+       \   'right': [ [ 'relativepath', 'modified' ] ],
+       \ },
+       \ 'component_function': {
+       \   'gitbranch': 'FugitiveHead'
+       \ },
+       \ }
+ 
 " COLORSCHEMES 
 "let g:lightline = { 'colorscheme':'tender' }
  
