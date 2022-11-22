@@ -46,7 +46,7 @@ Plug 'vim-scripts/SlateDark'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 " Lualine & Dev Icons ---
-Plug 'itchyny/lightline.vim' 
+" Plug 'itchyny/lightline.vim' 
 Plug 'gilgigilgil/anderson.vim' " harmonious lightline themes: Tomorrow_Night / seoul256
 Plug 'overcache/NeoSolarized'
 Plug 'jacoborus/tender.vim'
@@ -107,7 +107,7 @@ inoremap <C-o> <Enter><Esc><S-o><tab>
 " niko's buffer navigation suggestion
 "nnoremap <leader>q :echo execute('ls t')->split("\n")[:10]->join("\n")<cr>:buffer<space>
 " auto enter :buffer for buffer search (with t flag for 'order by Time')
-nnoremap :ls :ls t<CR>:b<Space>
+nnoremap :ls :ls t<CR>:b <Space>
 "nnoremap <leader>q :echo execute('ls t')->split("\n")[:10]->join("\n")<cr>:buffer<space>
 " ---------------------------------------------
 
@@ -194,21 +194,21 @@ set winbar=%t
  hi WinBar guifg=#fcb814
 
 " " LIGHTLINE -------------------------------
- "let g:lightline = { 'colorscheme':'tender' }
- syntax enable
- "removes the duplicated 'insert / 'normal' mode etc under status bar 
- set noshowmode 
- set statusline+=%F
- let g:lightline = {
-       \ 'colorscheme': 'nord',
-       \ 'active': {
-       \   'left': [ [ 'mode', 'paste','gitbranch' ]],
-       \   'right': [ [ 'relativepath', 'modified' ] ],
-       \ },
-       \ 'component_function': {
-       \   'gitbranch': 'FugitiveHead'
-       \ },
-       \ }
+" "let g:lightline = { 'colorscheme':'tender' }
+" syntax enable
+" "removes the duplicated 'insert / 'normal' mode etc under status bar 
+" set noshowmode 
+" set statusline+=%F
+" let g:lightline = {
+"       \ 'colorscheme': 'nord',
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste','gitbranch' ]],
+"       \   'right': [ [ 'relativepath', 'modified' ] ],
+"       \ },
+"       \ 'component_function': {
+"       \   'gitbranch': 'FugitiveHead'
+"       \ },
+"       \ }
  
 " COLORSCHEMES 
 "let g:lightline = { 'colorscheme':'tender' }
