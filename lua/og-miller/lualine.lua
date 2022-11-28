@@ -21,7 +21,21 @@ require('lualine').setup {
         lualine_a = {'mode'} ,
         --lualine_b = {'branch', 'diff', 'diagnostics'},
         lualine_b = {'branch', 'diagnostics'},
-        lualine_c = {' '},
+        lualine_c = {
+          {
+          'filename',
+          file_status = true,     
+          newfile_status = false,
+          path = 1,             
+          shorting_target = 20,    
+          symbols = {
+            modified = '[+]',    
+            readonly = '[-]',   
+            unnamed = '[No Name]',
+            newfile = '[New]',    
+          },
+        },
+      },
         --lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_x = {'filetype'},
         --lualine_y = {'progress'},
