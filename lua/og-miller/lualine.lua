@@ -27,7 +27,7 @@ require('lualine').setup {
           file_status = true,     
           newfile_status = false,
           path = 1,             
-          shorting_target = 20,    
+          shorting_target = 0,    
           symbols = {
             modified = '[+]',    
             readonly = '[-]',   
