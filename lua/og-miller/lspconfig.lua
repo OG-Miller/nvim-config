@@ -16,7 +16,7 @@ local opts = { noremap=true, silent=true }
  -- turn on/off inline diagnostics
 vim.diagnostic.config({
   virtual_text = false, 
-  signs = true, 
+  signs = false, 
   underline= true, 
 })
  local on_attach = function(client, bufnr)
