@@ -238,7 +238,7 @@ vnoremap <C-y> :s/\/\/ /<CR>
 "endif
 
 " Ignore some folders and files for CtrlP indexing
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|lib'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|lib\|dist'
 " Show dotfiles
 let g:ctrlp_show_hidden = 1
 " Search by filename (as opposed to full path) as the default
