@@ -294,7 +294,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " On split screen, make left side smaller by 20 (opening nerdtree resets to middle)
-nnoremap <leader>< <C-W>20<
-nnoremap <leader>> <C-W>20>
+nnoremap <leader>< <C-W>50<
+nnoremap <leader>> <C-W>50>
 nnoremap <leader>- <C-W>10-
 nnoremap <leader>= <C-W>10+
