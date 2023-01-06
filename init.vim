@@ -224,6 +224,10 @@ set winbar=%t
 "below only required if you want something other than the thin line
 "let g:indent_blankline_char_list = ['|']
 "let g:indent_blankline_use_treesitter = v:true
+"
+" added this to keep showing lines when unfolding (previously they were gone)
+" don't know if this fixed it, keep an eye on it
+let g:indent_blankline_show_foldtext = v:false
 
 
 " commenting (h for hide)
