@@ -114,6 +114,10 @@ nnoremap :ls :ls t<CR>:b <Space>
 "nnoremap <leader>q :echo execute('ls t')->split("\n")[:10]->join("\n")<cr>:buffer<space>
 " ---------------------------------------------
 
+" MARKS ----------------------------------
+" auto enter marks list ready to select one or just esc to peek
+nnoremap :lm :<C-u>marks<CR>:normal! `
+"
 " close quickfix faster (for when got to definition opens quickfix)
 nnoremap <leader><Esc> :cclose<cr>
 " open quickfix faster
@@ -297,4 +301,4 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>< <C-W>50<
 nnoremap <leader>> <C-W>50>
 nnoremap <leader>- <C-W>10-
-nnoremap <leader>= <C-W>10+
+nnoremap <leader>= <C-W>=
