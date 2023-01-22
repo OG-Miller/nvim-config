@@ -120,6 +120,10 @@ nnoremap :ls :ls t<CR>:b <Space>
 " auto enter marks list ready to select one or just esc to peek
 nnoremap :lm :<C-u>marks<CR>:normal! `
 "
+" TODO: close location list (eg tsserver error list) make mapping for :lclose
+" make function that checks if quickfix or location list is open, and closes
+" the correct one
+nnoremap <leader>q <Esc> :lclose<cr>
 " close quickfix faster (for when got to definition opens quickfix)
 nnoremap <leader><Esc> :cclose<cr>
 " open quickfix faster
