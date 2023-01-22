@@ -98,7 +98,7 @@ augroup END
 "
 " this searches for .ts files only(removes .d.ts, keeps tsx), to add another file type use -tjs, to
 " remove a file type use -Tjs etc.
- nnoremap <Space>G viwy q:<insert>grep! '' -tts <esc>2F'p<CR>
+ nnoremap <Space>G viwy q:<insert>grep! '' <esc>2F'p<CR>
 " open grep in ready position
 nnoremap <Space>g q:<insert>grep! -i '' -tts<esc>F'<insert>
 " step to next quickfix item 
