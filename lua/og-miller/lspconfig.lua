@@ -1,5 +1,5 @@
---require('lspconfig').tsserver.setup{}
---require('lspconfig').rust_analyzer.setup{}
+---require('lspconfig').tsserver.setup{}
+---require('lspconfig').rust_analyzer.setup{}
 
 -- -- /////////////////////////////////////////////////////////////
 -- -- all below pasted from https://github.com/neovim/nvim-lspconfig#Keybindings-and-completion
@@ -19,6 +19,14 @@ vim.diagnostic.config({
   signs = false, 
   underline= true, 
 })
+
+-- set the root_dir to '.git' so each server attaches to the project
+-- directory. This value needs to be a unique filetype at the top level 
+-- otherwise it searches for the deepest package.json and doesn't find
+-- references in surrounding folders in the project when using go_to_reference
+ local nvim_lsp = require 'lspconfig'
+ local root_dir = nvim_lsp.util.root_pattern('.git')
+
  local on_attach = function(client, bufnr)
  -- Enable completion triggered by <c-x><c-o>
  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -59,16 +67,19 @@ vim.diagnostic.config({
 
  --vim.api.nvim_buf_set_keymap(bufnr, 'i', 'kk', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
 end
--- 
--- 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
+
+--- Use a loop to conveniently call 'setup' on multiple servers and
+--- map buffer local keybindings when the language server attaches
 local servers = {'tsserver', 'pyright', 'rust_analyzer'}
+local nvim_lsp = require 'lspconfig'
+
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup{
+
     on_attach = on_attach,
+    root_dir = root_dir,
     flags = {
-      -- This will be the default in neovim 0.7+
+      -- This will be the default in neovim 0.7
       debounce_text_changes = 150,
     }
   }
