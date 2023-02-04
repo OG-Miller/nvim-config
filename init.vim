@@ -147,26 +147,26 @@ nnoremap <silent> <leader>a :lua require("harpoon.ui").toggle_quick_menu()<cr>
 "nnoremap <leader>c :call bufexists('SPEAR')<cr>
 "nnoremap <leader>c :call appendbufline('SPEAR', line(), ['some', 'text'])
 
-func AddFileToSpear()
-    :keepjumps e SPEAR | r !echo # 
-    :setlocal buftype=nofile 
-    :setlocal nobuflisted
-    :setlocal bufhidden 
-    ":w
-    :e# 
-    echo '--spear-->'
-    echo ''
-endfunc
-nnoremap <leader>f :call AddFileToSpear()<cr>
-"nnoremap <silent> <leader>D :edit ./SPEAR<cr>
-func OpenSpear()
-    ":keepjumps exe ":edit ./SPEAR"
-    :exe "keepjumps :edit ./SPEAR"
-   " :setlocal buftype=
-    :setlocal nobuflisted
-    :setlocal bufhidden=hide
-endfunc
-nnoremap <silent> <leader>F :keepjumps :call OpenSpear()<cr>
+" func AddFileToSpear()
+"     :keepjumps e SPEAR | r !echo # 
+"     :setlocal buftype=nofile 
+"     :setlocal nobuflisted
+"     :setlocal bufhidden 
+"     ":w
+"     :e# 
+"     echo '--spear-->'
+"     echo ''
+" endfunc
+" nnoremap <leader>f :call AddFileToSpear()<cr>
+" "nnoremap <silent> <leader>D :edit ./SPEAR<cr>
+" func OpenSpear()
+"     ":keepjumps exe ":edit ./SPEAR"
+"     :exe "keepjumps :edit ./SPEAR"
+"    " :setlocal buftype=
+"     :setlocal nobuflisted
+"     :setlocal bufhidden=hide
+" endfunc
+" nnoremap <silent> <leader>F :keepjumps :call OpenSpear()<cr>
 " --------------------------------------------------------------------->
 " toggle text wrap
 nnoremap <leader>w :set wrap!<cr> 
@@ -188,15 +188,6 @@ command Mon :set so=999
 nnoremap <silent> <ESC> :noh<CR>
 
 
-" TYPESCRIPT ------------------------------
-" see: https://pragmaticpineapple.com/ultimate-vim-typescript-setup/
-"nmap <silent> gd <Plug>(coc-definition)
-"nmap <silent> gy <Plug>(coc-type-definition)
-"nmap <silent> gi <Plug>(coc-implementation)
-"nmap <silent> gr <Plug>(coc-references)
-" format file
-" nnoremap :fmt <cmd>lua vim.lsp.buf.formatting()<CR>
-
 " RUST ------------------------------------
 " format on save
 let g:rustfmt_autosave = 1
@@ -208,40 +199,15 @@ filetype plugin indent on
 " set statusline+=%F
 set winbar=%t
 
- set laststatus=3
- "hi WinBar guibg=#036EDB
- "hi WinBar guifg=#036EDB
- hi WinBar guifg=#fcb814
+set laststatus=3
+"hi WinBar guibg=#036EDB
+"hi WinBar guifg=#036EDB
+hi WinBar guifg=#fcb814
 
-" " LIGHTLINE -------------------------------
-" "let g:lightline = { 'colorscheme':'tender' }
-" syntax enable
-" "removes the duplicated 'insert / 'normal' mode etc under status bar 
-" set noshowmode 
-" set statusline+=%F
-" let g:lightline = {
-"       \ 'colorscheme': 'nord',
-"       \ 'active': {
-"       \   'left': [ [ 'mode', 'paste','gitbranch' ]],
-"       \   'right': [ [ 'relativepath', 'modified' ] ],
-"       \ },
-"       \ 'component_function': {
-"       \   'gitbranch': 'FugitiveHead'
-"       \ },
-"       \ }
- 
-" COLORSCHEMES 
-"let g:lightline = { 'colorscheme':'tender' }
- 
-" INDENT-BLANKLINE
-"below only required if you want something other than the thin line
-"let g:indent_blankline_char_list = ['|']
-"let g:indent_blankline_use_treesitter = v:true
-"
+
 " added this to keep showing lines when unfolding (previously they were gone)
 " don't know if this fixed it, keep an eye on it
 let g:indent_blankline_show_foldtext = v:false
-
 
 " commenting (h for hide)
 vnoremap <C-h> o0<C-v><S-i>//<space><esc> 
@@ -272,28 +238,7 @@ set termguicolors
 endif
 
 
-
-
-" COLORSCHEMES 
-" specific cursorline setting for 'slateDark' colorscheme
-"hi CursorLine term=bold cterm=bold guibg=#333333
-"let g:onedark_config = {
-"    \ 'style': 'warm',
-"\}
-
-" colorscheme tender 
-"require('github-theme').setup()
-
-
-" specific cursorline setting for 'slateDark' colorscheme
-"hi CursorLine term=bold cterm=bold guibg=#333333
-" specific cursorline setting for 'anderson' colorscheme
-"hi CursorLine term=bold cterm=bold guibg=#4c4c4c
-
 " NERDTREE   
-"map <silent> <C-n> :NERDTreeFocus<CR>
-" show bookmarks list at top of nerdTree
-"let NERDTreeShowBookmarks=1
 map <silent> <leader>b :NERDTreeFocus<CR>
 let NERDTreeQuitOnOpen=3
 " find current file in the NerdTree
@@ -306,15 +251,13 @@ nnoremap :nr :NERDTreeRefreshRoot<CR>
 set completeopt=menuone,noinsert,noselect
 let g:completion_enable_auto_popup = 0
 
-" INTEGRATED TERMINAL 
-command Term :split <bar> :term
-"nnoremap <leader>t :split <bar> :term<cr>
-" easier split screen navigation
+" SPLIT SCREEN navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-" On split screen, make left side smaller by 20 (opening nerdtree resets to middle)
+" On split screen, increase selected screen size by 50 etc
 nnoremap <leader>< <C-W>50<
 nnoremap <leader>> <C-W>50>
+" On split screen, make panes equal sized
 nnoremap <leader>= <C-W>=
