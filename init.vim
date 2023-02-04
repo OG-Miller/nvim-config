@@ -24,9 +24,10 @@ set expandtab
 set cursorline
 set so=999 " keep cursor in middle of page
 set hls ic
-"set relativenumber
-nnoremap <leader>r :bufdo set rnu! <cr>
-"set rnu! (toggle relative numbers)
+"set relativenumber on all buffers 
+"nnoremap <leader>r :bufdo set rnu! <cr>
+"toggle relative numbers
+nnoremap <leader>r :set rnu!<cr>
 "
 " Plugins -------------------
 packadd cfilter
