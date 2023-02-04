@@ -60,6 +60,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'ThePrimeagen/harpoon'
 " auto complete ------
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -133,6 +134,11 @@ nnoremap <leader><Enter> :copen 20<cr>
 nnoremap :no :Cfilter!  
 " keep only schemas eg :only schemas
 nnoremap :only :Cfilter 
+
+
+" HARPOON -----------------------------
+nnoremap <leader>h :lua require("harpoon.mark").add_file()<cr>
+nnoremap <silent> <leader>a :lua require("harpoon.ui").toggle_quick_menu()<cr>
 
 " SPEAR----WIP ------------------------------------->
 " todo: make invisible to jumplist
