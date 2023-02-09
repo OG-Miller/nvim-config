@@ -135,6 +135,8 @@ nnoremap :no :Cfilter!
 " keep only schemas eg :only schemas
 nnoremap :only :Cfilter 
 
+" PRETTIER format current file
+nnoremap <space>p :silent !npx prettier -w %<cr>
 
 " HARPOON -----------------------------
 nnoremap <leader>h :lua require("harpoon.mark").add_file()<cr>
