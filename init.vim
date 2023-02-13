@@ -233,6 +233,7 @@ let g:ctrlp_show_hidden = 1
 " Search by filename (as opposed to full path) as the default
 " ( use <C-b> to switch between modes )
 let g:ctrlp_by_filename = 1
+
 "/CTRLp ------------------------------------------------
 
 if (has("termguicolors"))
@@ -241,6 +242,10 @@ endif
 
 
 " NERDTREE   
+" temp fix nvim 9.0 half screen issue
+" this opens a one line menu rather than bottom half of screen
+" alternative is to just ctrl +/- to resize a little
+let g:NERDTreeMinimalMenu=1
 map <silent> <leader>b :NERDTreeFocus<CR>
 let NERDTreeQuitOnOpen=3
 " find current file in the NerdTree
