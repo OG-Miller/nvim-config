@@ -246,8 +246,9 @@ endif
 " this opens a one line menu rather than bottom half of screen
 " alternative is to just ctrl +/- to resize a little
 let g:NERDTreeMinimalMenu=1
-map <silent> <leader>b :NERDTreeFocus<CR>
+let g:NERDTreeWinSize=60
 let NERDTreeQuitOnOpen=3
+map <silent> <leader>b :NERDTreeFocus<CR>
 " find current file in the NerdTree
 nnoremap :nf :NERDTreeFind<CR>
 " refresh file tree
