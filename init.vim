@@ -7,8 +7,11 @@ if executable("rg")
 endif
 " this starts the file unfolded
 " zi toggles between foldenabled / nofoldenabled
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
-set foldmethod=indent
+
 set autoread
 set nowrap linebreak nolist       " wrap line on full words
 set number
