@@ -90,12 +90,23 @@ vnoremap <leader>c "*y
 noremap Y y$
 nnoremap "" "0p
 nnoremap + <esc>o+ 
+
+
+" auto reload file when it has been changed outside of the buffer.
+" The autocmd! clears all previously defined auto commands in the active group
+" so that they are not duplicated when you source the file again.
+augroup AUTOMATIONS
+     autocmd!
+     autocmd CursorMoved * silent! checktime
+augroup END
+
+
 " briefly highlight yanked text
 augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
-
+ 
 " GREP / SEARCH -------------------------------
 " immediate grep word under cursor
 " old grep pattern: nnoremap <Space>G viwy q:<insert>grep! '' packages/**/*.{ts,tsx} <esc>2F'p<CR>
