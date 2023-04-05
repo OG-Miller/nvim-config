@@ -130,6 +130,8 @@ inoremap <C-o> <Enter><Esc><S-o><tab>
 nnoremap :ls :ls t<CR>:b <Space>
 "nnoremap <leader>q :echo execute('ls t')->split("\n")[:10]->join("\n")<cr>:buffer<space>
 " ---------------------------------------------
+" split screen & go to definition
+nnoremap <leader>d :vs<cr>  <cmd>lua vim.lsp.buf.definition()<CR>
 
 " MARKS ----------------------------------
 " auto enter marks list ready to select one or just esc to peek
