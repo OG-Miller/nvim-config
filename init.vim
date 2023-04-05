@@ -33,7 +33,6 @@ nnoremap <leader>r :set rnu!<cr>
 "
 " Plugins -------------------
 packadd cfilter
-
 call plug#begin('~/.config/nvim/plugged')
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
@@ -83,6 +82,7 @@ let g:gitgutter_terminal_reports_focus=0
 " GENERAL VIMPROVEMENTS ---------------------- 
 " stop uppercase V typo from slowing you down
 nnoremap :Vs :vs  
+nnoremap <leader>t :tabnew<CR>
 nnoremap :reload :source $MYVIMRC<CR>
 " copy highlighted to global clipboard
 vnoremap <leader>c "*y
