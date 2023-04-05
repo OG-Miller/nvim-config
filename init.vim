@@ -144,7 +144,7 @@ nnoremap <leader>q <Esc> :lclose<cr>
 " close quickfix faster (for when got to definition opens quickfix)
 nnoremap <leader><Esc> :cclose<cr>
 " open quickfix faster
-nnoremap <leader><Enter> :copen 20<cr>
+nnoremap <leader><Enter> :copen 20<cr><C-w>J
 " filter out schemas eg :no schemas
 nnoremap :no :Cfilter!  
 " keep only schemas eg :only schemas
