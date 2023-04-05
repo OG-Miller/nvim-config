@@ -225,6 +225,7 @@ hi WinBar guifg=#fcb814
 " added this to keep showing lines when unfolding (previously they were gone)
 " don't know if this fixed it, keep an eye on it
 let g:indent_blankline_show_foldtext = v:false
+nnoremap <leader>z za<cr>
 
 " commenting (h for hide)
 vnoremap <C-h> o0<C-v><S-i>//<space><esc> 
