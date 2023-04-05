@@ -19,6 +19,7 @@ require("github-theme").setup({
       DiagnosticHint = {link = "LspDiagnosticsDefaultHint"},
       -- this will remove the highlight groups
       TSField = {},
+      TSTitle = { fg = "orange", style = "bold" }
     }
   end
 })

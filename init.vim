@@ -7,11 +7,10 @@ if executable("rg")
 endif
 " this starts the file unfolded
 " zi toggles between foldenabled / nofoldenabled
-
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
-
+set rnu
 set autoread
 set nowrap linebreak nolist       " wrap line on full words
 set number
@@ -21,8 +20,8 @@ set mouse=a
 "set ignorecase
 "set smartcase
 set encoding=utf-8
-set tabstop=2
 set shiftwidth=2
+set tabstop=1
 set expandtab
 set cursorline
 set so=999 " keep cursor in middle of page
@@ -243,6 +242,8 @@ if (has("termguicolors"))
 set termguicolors
 endif
 
+
+"colorscheme monokai_ristretto
 
 " NERDTREE   
 " temp fix nvim 9.0 half screen issue
