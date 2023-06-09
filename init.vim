@@ -38,8 +38,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'navarasu/onedark.nvim'
 Plug 'shaunsingh/nord.nvim'
+Plug 'navarasu/onedark.nvim'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'tanvirtin/monokai.nvim'
@@ -219,7 +219,7 @@ set winbar=%t
 set laststatus=3
 "hi WinBar guibg=#036EDB
 "hi WinBar guifg=#036EDB
-hi WinBar guifg=#fcb814
+hi WinBar guifg=#fcb814 
 
 
 " added this to keep showing lines when unfolding (previously they were gone)
@@ -233,6 +233,10 @@ vnoremap <C-h> o0<C-v><S-i>//<space><esc>
 vnoremap <C-y> :s/\/\/ /<CR>
 
 "CTRLp ------------------------------------------------
+let g:ctrlp_max_files=0
+let g:ctrlp_height = 20
+let g:ctrlp_match_window = 'bottom,order:btt,min:3,max:10,results:10'
+
 " Use ripgrep
 "if executable("rg")
 "    set grepprg=rg\ --color=never
@@ -255,9 +259,6 @@ let g:ctrlp_by_filename = 1
 if (has("termguicolors"))
 set termguicolors
 endif
-
-
-"colorscheme monokai_ristretto
 
 " NERDTREE   
 " temp fix nvim 9.0 half screen issue

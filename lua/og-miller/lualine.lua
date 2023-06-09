@@ -2,6 +2,7 @@ require('lualine').setup {
       options = {
         icons_enabled = false,
         theme ='github_dimmed',
+       -- theme ='onedark',
         component_separators = { left = ' ', right = ' '},
         section_separators = { left = ' ', right = ' '},
         disabled_filetypes = {
@@ -23,21 +24,23 @@ require('lualine').setup {
         lualine_b = {'branch', 'diagnostics'},
         lualine_c = {
           {
-          'filename',
-          file_status = true,     
-          newfile_status = false,
-          path = 1,             
-          shorting_target = 0,    
-          symbols = {
-            modified = '[+]',    
-            readonly = '[-]',   
-            unnamed = '[No Name]',
-            newfile = '[New]',    
-          },
+        'filename',
+        color={fg='orange'},
+        section = {2, -1},
+        file_status = true,     
+        newfile_status = false,
+        path = 1,             
+        shorting_target = 0,    
+        symbols = {
+          modified = '[+]',    
+          readonly = '[-]',   
+          unnamed = '[No Name]',
+          newfile = '[New]',    
         },
       },
+      },
         --lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_x = {'filetype'},
+        lualine_x = {},
         --lualine_y = {'progress'},
         --lualine_z = {'location'}
       },
