@@ -1,13 +1,13 @@
 set nocompatible 		" be iMproved, required
 filetype off 			" required
-
 if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 " this starts the file unfolded
 " zi toggles between foldenabled / nofoldenabled
-set foldmethod=expr
+"set foldmethod=expr
+set foldmethod=indent
 set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
 set rnu
@@ -86,6 +86,9 @@ nnoremap <leader>t :tabnew<CR>
 nnoremap :reload :source $MYVIMRC<CR>
 " copy highlighted to global clipboard
 vnoremap <leader>c "*y
+" yank visual selection to global clipboard. Will keep the above version
+" around too until I get used to it
+vnoremap y "*y
 " yank to end of line
 noremap Y y$
 nnoremap "" "0p
@@ -225,7 +228,7 @@ hi WinBar guifg=#fcb814
 " added this to keep showing lines when unfolding (previously they were gone)
 " don't know if this fixed it, keep an eye on it
 let g:indent_blankline_show_foldtext = v:false
-nnoremap <leader>z za<cr>
+nnoremap <leader>z :set foldlevel=0<cr>
 
 " commenting (h for hide)
 vnoremap <C-h> o0<C-v><S-i>//<space><esc> 

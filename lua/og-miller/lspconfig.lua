@@ -25,7 +25,7 @@ vim.diagnostic.config({
 -- otherwise it searches for the deepest package.json and doesn't find
 -- references in surrounding folders in the project when using go_to_reference
  local nvim_lsp = require 'lspconfig'
- local root_dir = nvim_lsp.util.root_pattern('.git')
+ local root_dir = nvim_lsp.util.root_pattern('.git') 
 
  local on_attach = function(client, bufnr)
  -- Enable completion triggered by <c-x><c-o>
