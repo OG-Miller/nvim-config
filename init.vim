@@ -6,7 +6,6 @@ if executable("rg")
 endif
 " this starts the file unfolded
 " zi toggles between foldenabled / nofoldenabled
-"set foldmethod=expr
 set foldmethod=indent
 set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
@@ -78,6 +77,28 @@ call plug#end()
 lua require('og-miller')
 
 let g:gitgutter_terminal_reports_focus=0
+
+
+" Add a sign with text "*" and highlight the current line
+let s:sign_added = 0
+
+if !exists('s:sample_sign_defined')
+  sign define sample_sign text=* texthl=Search
+  let s:sample_sign_defined = 1
+endif
+
+function! ToggleSignAndHighlight()
+  if s:sign_added
+    sign unplace *
+    execute 'match none'
+  else
+    execute 'sign place 123 line=' . line('.') . ' name=sample_sign file=' . expand('%:p')
+    execute 'match Search /\%' . line('.') . 'l/'
+  endif
+  let s:sign_added = !s:sign_added
+endfunction
+
+nnoremap <leader>s :call ToggleSignAndHighlight()<CR>
 
 " GENERAL VIMPROVEMENTS ---------------------- 
 " stop uppercase V typo from slowing you down
