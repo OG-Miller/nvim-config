@@ -219,8 +219,8 @@ ab :dot: •
 ab :?: ¿
 " todolist
 ab :to: <cmd>:r ~/.config/nvim/text/todo.txt<CR><Esc>2j$ :startinsert!
-nnoremap <C-y> mm$F[<space>r✓<esc>`mll
-nnoremap <C-n> mn$F[<space>r<space><esc>`nhh 
+" replace + list item with ✓ 
+nnoremap <C-y> mm$F+r✓<esc>`mll
 
 " toggle cursor to stay in middle of page
 command Moff :set so=1
