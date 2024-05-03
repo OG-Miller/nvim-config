@@ -15,6 +15,7 @@ set nowrap linebreak nolist       " wrap line on full words
 set number
 set splitbelow
 set splitright
+set noscrollbind
 set mouse=a
 "set ignorecase
 "set smartcase
@@ -106,7 +107,7 @@ nnoremap :Vs :vs
 nnoremap <leader>t :tabnew<CR>
 nnoremap :reload :source $MYVIMRC<CR>
 " copy highlighted to global clipboard
-vnoremap <leader>c "*y
+"vnoremap <leader>c "*y
 " yank visual selection to global clipboard. Will keep the above version
 " around too until I get used to it
 vnoremap y "*y
