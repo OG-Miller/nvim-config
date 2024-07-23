@@ -157,6 +157,8 @@ nnoremap :ls :ls t<CR>:b <Space>
 " ---------------------------------------------
 " split screen & go to definition
 nnoremap <leader>d :vs<cr>  <cmd>lua vim.lsp.buf.definition()<CR>
+" open current buffer in background tab
+nnoremap <leader>T :tab split \| tabprevious<CR>
 
 " MARKS ----------------------------------
 " auto enter marks list ready to select one or just esc to peek
