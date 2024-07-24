@@ -255,11 +255,6 @@ let g:indent_blankline_show_foldtext = v:false
 nnoremap <leader>z :set foldlevel=0<cr>
 
 " COMMENTS ------------------------------------------
-" chatGPT made this comment out all console logs keybinding "l for logs
-nnoremap <leader>l :%s/console\.log(\_.\{-});/\/\* & \*\//g<CR>
-" undo console.log commenting
-nnoremap <leader>L :%s/\/\* console\.log(\(.\{-}\)); \*\//console.log(\1);/g<CR>
-
 " commenting (h for hide)
 vnoremap <C-h> o0<C-v><S-i>//<space><esc> 
 " uncommenting (y is above h)
