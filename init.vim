@@ -1,3 +1,6 @@
+"let $TMPDIR = expand('~/.config/nvim/temp')
+
+set directory=~/.config/nvim/temp//
 set nocompatible 		" be iMproved, required
 filetype off 			" required
 if executable("rg")
@@ -79,6 +82,17 @@ lua require('og-miller')
 
 let g:gitgutter_terminal_reports_focus=0
 
+" Define virtual edit toggle function
+function! ToggleVirtualEdit()
+  if &virtualedit == 'all'
+    set virtualedit=none
+  else
+    set virtualedit=all
+  endif
+endfunction
+
+" Map <leader>e to the toggle function
+nnoremap <leader>e :call ToggleVirtualEdit()<CR>
 
 " Add a sign with text "*" and highlight the current line
 let s:sign_added = 0
@@ -104,18 +118,13 @@ nnoremap <leader>s :call ToggleSignAndHighlight()<CR>
 " GENERAL VIMPROVEMENTS ---------------------- 
 " stop uppercase V typo from slowing you down
 nnoremap :Vs :vs  
-nnoremap <leader>t :tabnew<CR>
 nnoremap :reload :source $MYVIMRC<CR>
-" copy highlighted to global clipboard
-"vnoremap <leader>c "*y
-" yank visual selection to global clipboard. Will keep the above version
-" around too until I get used to it
+" yank visual selection to global clipboard.
+" (I think this breaks: highlight->yank to register)
 vnoremap y "*y
 " yank to end of line
 noremap Y y$
 nnoremap "" "0p
-nnoremap + <esc>o+ 
-
 
 " auto reload file when it has been changed outside of the buffer.
 " The autocmd! clears all previously defined auto commands in the active group
@@ -157,6 +166,8 @@ nnoremap :ls :ls t<CR>:b <Space>
 " ---------------------------------------------
 " split screen & go to definition
 nnoremap <leader>d :vs<cr>  <cmd>lua vim.lsp.buf.definition()<CR>
+" open new tab
+nnoremap <leader>t :tabnew<CR>
 " open current buffer in background tab
 nnoremap <leader>T :tab split \| tabprevious<CR>
 
