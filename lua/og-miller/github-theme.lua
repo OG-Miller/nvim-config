@@ -58,4 +58,4 @@ require('github-theme').setup({
   end,
 })
 
-vim.cmd('colorscheme github_dimmed')
+vim.cmd('colorscheme github_gm_light')

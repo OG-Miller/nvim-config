@@ -249,16 +249,16 @@ let g:rustfmt_autosave = 1
 "syntax enable
 filetype plugin indent on
 
-
 " WINBAR/STATUS BAR (at top of windows) use this with neovim 0.8 or higher
+" (currently showing file name)
 " set statusline+=%F
 set winbar=%t
 
 set laststatus=3
 "hi WinBar guibg=#036EDB
 "hi WinBar guifg=#036EDB
-hi WinBar guifg=#fcb814 
-
+"hi WinBar guifg=#fcb814 
+" winbar currently set by lualine
 
 " added this to keep showing lines when unfolding (previously they were gone)
 " don't know if this fixed it, keep an eye on it
